@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>💬 Your Quotes</h2>
+    <a href="{{ url_for('quotes.add_quotes') }}" class="btn btn-sm btn-primary">➕ Add New</a>
+</div>
+
+{% if user_quotes %}
+<div class="table-responsive">
+    <table class="table table-bordered bg-white">
+        <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>Date & Quote</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for quote in user_quotes %}
+            <tr>
+                <td>Quote {{ loop.index }}</td>
+                <td style="white-space: pre-wrap;">
+                    {{ quote.date.strftime('%d/%m/%Y') }}<br>
+                    {{ quote.quotes }}
+                </td>
+                <td>
+                    <form action="{{ url_for('quotes.delete_quote', quote_id=quote.id) }}" method="POST" style="display:inline;">
+                        {{ delete_form.hidden_tag() }}
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this quote?')"> Delete
+                        </button> <br>
+                        <a href="{{ url_for('quotes.edit_quote', quote_id=quote.id) }}" class="btn btn-warning">✏️ Edit</a>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<p>No quotes yet. Add one by clicking <strong>Add New</strong> above. ✍️</p>
+{% endif %}
+{% endblock %}

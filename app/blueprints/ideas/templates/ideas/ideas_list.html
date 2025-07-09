@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>💡 Your Ideas</h2>
+    <a href="{{ url_for('ideas.add_idea') }}" class="btn btn-sm btn-primary">➕ Add New</a>
+</div>
+
+{% if user_ideas %}
+<div class="table-responsive">
+    <table class="table table-bordered bg-white">
+        <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>Date & Quote</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for idea in user_ideas %}
+            <tr>
+                <td>Idea {{ loop.index }}</td>
+                <td style="white-space: pre-wrap;">
+                    {{ idea.date.strftime('%d/%m/%Y') }}<br>
+                    {{ idea.ideas }}
+                    
+                </td>
+                <td>
+                    <form action="{{ url_for('ideas.delete_idea', idea_id=idea.id) }}" method="POST" style="display:inline;">
+                        {{ delete_form.hidden_tag() }}
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this idea?')"> Delete
+                        </button> <br>
+                        <a href="{{ url_for('ideas.edit_idea', idea_id=idea.id) }}" class="btn btn-warning">✏️ Edit</a>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<p>No ideas yet. Add one by clicking <strong>Add New</strong> above. ✍️</p>
+{% endif %}
+{% endblock %}

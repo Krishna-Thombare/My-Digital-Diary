@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>➕ Add New Note</h2>
+    <a href="{{ url_for('notes.notes_list') }}" class="btn btn-secondary">🔙 Back</a>
+</div>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <table class="table table-bordered bg-white">
+        <tr>
+            <th>{{ form.note_name.label }}</th>
+            <td>{{ form.note_name(class="form-control") }}</td>
+        </tr>
+        <tr>
+            <th>{{ form.notes.label }}</th>
+            <td>{{ form.notes(rows=6, class="form-control") }}</td>
+        </tr>
+        <tr>
+            <th>{{ form.source_links.label }}</th>
+            <td>{{ form.source_links(rows=3, class="form-control") }}</td>
+        </tr>
+    </table>
+    <div class="d-flex justify-content-end">
+        {{ form.submit(class="btn btn-success") }}
+    </div>
+</form>
+{% endblock %}

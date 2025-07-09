@@ -1,0 +1,166 @@
+/* Reset & Base Styling */
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f7efcf;
+    min-height: 100vh;
+}
+
+/* Layout Container */
+.layout {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background-color: #483C32; /* Coffee brown */
+    color: #ffffff;
+    padding: 30px 20px;
+    flex-shrink: 0;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.sidebar a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #fcbe3a; /* Golden highlight */
+}
+
+/* Content Area */
+.content {
+    flex: 1;
+    padding: 40px;
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+.content h1, .content h2 {
+    margin-bottom: 20px;
+}
+
+/* Task Done */
+.done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Task List */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* Forms */
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Flash Messages */
+.flash-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.flash-message {
+    font-size: 0.9rem;
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+    padding: 10px 16px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    opacity: 1;
+    animation: fadeOut 4s forwards;
+}
+
+/* Flash fade out animation */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+/* Navbar */
+.navbar {
+    background-color: #fff;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    font-weight: 600;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 15px;
+}
+
+.navbar a:hover {
+    color: #2563eb;
+}
+
+.table {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    background-color: #f9f2e7;
+    color: #3e2f1c;
+}
+
+td {
+    background-color: #fff;
+    color: #333;
+}

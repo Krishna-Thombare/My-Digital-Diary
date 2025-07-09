@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Digital Diary</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Top Navbar -->
+    {% include 'navbar.html' %}
+
+    <div class="layout">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>📒 My Diary</h2>
+            <br>
+            <a href="{{ url_for('journal.journal_list') }}">📓 Journal </a>
+            <a href="{{ url_for('notes.notes_list') }}">📝 Notes </a>
+            <a href="{{ url_for('ideas.ideas_list') }}">💡 Ideas </a>
+            <a href="{{ url_for('quotes.quotes_list') }}">💬 Quotes </a>
+            <a href="{{ url_for('todo.todo') }}">✅ To-Do </a>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href="{{ url_for('auth.logout') }}">🚪 Logout </a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Flash messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <div class="flash-container">
+                  {% for category, message in messages %}
+                    <div class="alert alert-{{ 'success' if category == 'Success' else 'danger' }} alert-dismissible fade show" role="alert">
+                      {{ message }}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

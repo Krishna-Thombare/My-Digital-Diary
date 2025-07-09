@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>📝 To-Do List</h2>
+
+<!-- Add Task Form -->
+<form method="POST" action="{{ url_for('todo.todo') }}" class="mb-4">
+    {{ form.hidden_tag() }}
+    {{ form.task.label }} {{ form.task(size=40, placeholder="Write your task...") }}
+    <button type="submit" class="btn btn-primary btn-sm">Add</button>
+</form>
+
+<!-- To-Do List Table -->
+{% if todos %}
+<div class="table-responsive">
+    <table class="table table-bordered bg-white">
+        <thead class="table-light">
+            <tr>
+                <th style="width: 20%;">📅 Date</th>
+                <th style="width: 60%;">🧾 Task</th>
+                <th style="width: 20%;">✅ Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in todos %}
+            <tr>
+                <td>
+                    <span {% if item.status %}style="text-decoration: line-through; color: gray;"{% endif %}>
+                        {{ item.date.strftime('%d-%m-%Y') }}
+                    </span>
+                </td>
+                <td>
+                    <span {% if item.status %}style="text-decoration: line-through; color: gray;"{% endif %}>
+                        {{ item.tasks }}
+                    </span>
+                </td>
+                <td>
+                    <form method="POST" action="{{ url_for('todo.toggle_status', todo_id=item.id) }}" style="display:inline;">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input type="checkbox" name="status" onchange="this.form.submit()" {% if item.status %}checked{% endif %}>
+                    </form>
+
+                    <form method="POST" action="{{ url_for('todo.delete_task', todo_id=item.id) }}" style="display:inline; margin-left: 10px;">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <button type="submit" class="btn btn-sm btn-danger">🗑️</button>
+                    </form>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<p>No tasks yet! Add your first one above. 💡</p>
+{% endif %}
+{% endblock %}
