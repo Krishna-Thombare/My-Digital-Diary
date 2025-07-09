@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>📖 Quote Entry</h2>
+    <a href="{{ url_for('quotes.quotes_list') }}" class="btn btn-secondary">🔙 Back</a>
+</div>
+
+<h4>Quote - {{ entry.date.strftime('%d/%m/%Y') }}</h4>
+<hr>
+
+<div class="bg-white p-4 border rounded" style="min-height: 500px; width: 100%; white-space: pre-wrap;">
+    {{ entry.quotes }}
+</div>
+{% endblock %}
+

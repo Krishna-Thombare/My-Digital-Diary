@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>📖 Note</h2>
+    <a href="{{ url_for('notes.notes_list') }}" class="btn btn-secondary">🔙 Back</a>
+    <a href="{{ url_for('notes.edit_note', note_id=entry.id) }}" class="btn btn-warning">✏️ Edit</a>
+</div>
+
+<div class="table table-bordered bg-white p-3">
+    <h5 class="mb-3">{{ entry.date.strftime('%d/%m/%Y') }} - {{ entry.note_name }}</h5>
+    <hr>
+    <div style="white-space: pre-wrap; min-height: 200px;">
+        {{ entry.notes }}
+    </div>
+
+    {% if entry.source_links %}
+    <hr>
+    <strong>Sources:</strong>
+    <p style="white-space: pre-wrap;">{{ entry.source_links }}</p>
+    {% endif %}
+</div>
+{% endblock %}

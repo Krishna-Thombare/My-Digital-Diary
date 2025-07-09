@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>📔 Your Journals</h2>
+    <a href="{{ url_for('journal.add_journal') }}" class="btn btn-sm btn-primary">➕ Add New</a>
+</div>
+
+{% if journals %}
+<div class="table-responsive">
+    <table class="table table-bordered bg-white">
+        <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>Date & Topic</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for journal in journals %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>
+                    <a href="{{ url_for('journal.view_journal', journal_id=journal.id) }}">
+                        {{ journal.date.strftime('%d/%m/%Y') }} - {{ journal.topic_name }}
+                    </a>
+                </td>
+                <td>
+                    <form action="{{ url_for('journal.delete_journal', journal_id=journal.id) }}" method="POST" style="display:inline;">
+                        {{ delete_form.hidden_tag() }}
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this entry?')"> Delete
+                    </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<p>No journal entries found. Start by <a href="{{ url_for('journal.add_journal') }}">adding one</a>.</p>
+{% endif %}
+{% endblock %}

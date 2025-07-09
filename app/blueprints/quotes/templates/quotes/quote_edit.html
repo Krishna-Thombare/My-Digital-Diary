@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>✏️ Edit Quote Entry</h2>
+    <a href="{{ url_for('quotes.quotes_list', quote_id=quote_id) }}" class="btn btn-secondary">🔙 Back</a>
+</div>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.quotes.label }}<br>
+        {{ form.quotes(class="form-control", rows=6) }}
+    </div>
+    <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+</form>
+{% endblock %}
