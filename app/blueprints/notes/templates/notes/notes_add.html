@@ -2,28 +2,35 @@
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <h2>➕ Add New Note</h2>
-    <a href="{{ url_for('notes.notes_list') }}" class="btn btn-secondary">🔙 Back</a>
+    <div class="d-flex align-items-center">
+        <a href="{{ url_for('notes.notes_list') }}" class="vintage-icon-btn">←</a>
+        <span class="vintage-label ms-2">Back</span>
+    </div>
+
+    <h2 class="text-center flex-grow-1 vintage-title">New Note</h2>
+
+    <div class="d-flex align-items-center">
+        <span class="vintage-label me-2">Save</span>
+        <button form="noteForm" type="submit" class="vintage-icon-btn">✓</button>
+    </div>
 </div>
 
-<form method="POST">
-    {{ form.hidden_tag() }}
-    <table class="table table-bordered bg-white">
-        <tr>
-            <th>{{ form.note_name.label }}</th>
-            <td>{{ form.note_name(class="form-control") }}</td>
-        </tr>
-        <tr>
-            <th>{{ form.notes.label }}</th>
-            <td>{{ form.notes(rows=6, class="form-control") }}</td>
-        </tr>
-        <tr>
-            <th>{{ form.source_links.label }}</th>
-            <td>{{ form.source_links(rows=3, class="form-control") }}</td>
-        </tr>
-    </table>
-    <div class="d-flex justify-content-end">
-        {{ form.submit(class="btn btn-success") }}
-    </div>
-</form>
+<div class="vintage-diary-box">
+    <form id="noteForm" method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="vintage-header">
+            <span class="journal-date">{{ current_date }}</span> -
+            {{ form.note_name(class="vintage-topic-input", placeholder="Note Title...") }}
+            <hr class="vintage-line">
+        </div>
+        <hr>
+
+        <div class="vintage-body">
+            {{ form.notes(class="vintage-textarea", rows="12", placeholder="Write your notes here...") }}
+            <hr class="line">
+            {{ form.source_links(class="vintage-textarea", rows="4", placeholder="Source links (optional)...") }}
+        </div>
+    </form>
+</div>
 {% endblock %}

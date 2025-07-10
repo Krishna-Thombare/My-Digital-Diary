@@ -2,22 +2,37 @@
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <h2>📖 Note</h2>
-    <a href="{{ url_for('notes.notes_list') }}" class="btn btn-secondary">🔙 Back</a>
-    <a href="{{ url_for('notes.edit_note', note_id=entry.id) }}" class="btn btn-warning">✏️ Edit</a>
-</div>
-
-<div class="table table-bordered bg-white p-3">
-    <h5 class="mb-3">{{ entry.date.strftime('%d/%m/%Y') }} - {{ entry.note_name }}</h5>
-    <hr>
-    <div style="white-space: pre-wrap; min-height: 200px;">
-        {{ entry.notes }}
+    <div class="d-flex align-items-center">
+        <a href="{{ url_for('notes.notes_list') }}" class="vintage-icon-btn">←</a>
+        <span class="vintage-label ms-2">Back</span>
     </div>
 
-    {% if entry.source_links %}
+    <h2 class="text-center flex-grow-1 vintage-title">View Note</h2>
+
+    <div class="d-flex align-items-center">
+        <span class="vintage-label me-2">Edit</span>
+        <a href="{{ url_for('notes.edit_note', note_id=entry.id) }}" class="vintage-icon-btn">✏️</a>
+    </div>
+</div>
+
+<div class="vintage-diary-box">
+    <div class="vintage-header">
+        <span class="journal-date">{{ entry.date.strftime('%d/%m/%Y') }}</span> - 
+        <span class="vintage-topic-input disabled">{{ entry.note_name }}</span>
+        <hr class="vintage-line">
+    </div>
     <hr>
-    <strong>Sources:</strong>
-    <p style="white-space: pre-wrap;">{{ entry.source_links }}</p>
-    {% endif %}
+
+    <div class="vintage-body">
+        <div style="white-space: pre-wrap; min-height: 300px; text-indent: 0;">
+            {{ entry.notes }}
+        </div>
+
+        {% if entry.source_links %}
+        <hr class="line">
+        <strong>Sources:</strong>
+        <div style="white-space: pre-wrap;">{{ entry.source_links }}</div>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

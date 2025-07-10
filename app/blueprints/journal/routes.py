@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, session, request
 from . import journal_bp
-from datetime import date
+from datetime import date, datetime
 from app.forms.journal_form import JournalForm, DeleteForm
 from app.models import db, UserJournal
 from app.utils.decorators import login_required
@@ -17,6 +17,8 @@ def journal_list():
 @login_required
 def add_journal():
     form = JournalForm()
+    today = datetime.now()
+    date_str = f"{today.day} {today.strftime('%B, %Y')}"
     if form.validate_on_submit():
         new_entry = UserJournal(
             user_id=session["user_id"],
@@ -29,7 +31,7 @@ def add_journal():
         db.session.commit()
         flash("Journal entry saved!", "success")
         return redirect(url_for("journal.journal_list"))
-    return render_template("journal/journal_add.html", form=form)
+    return render_template("journal/journal_add.html", form=form, current_date=date_str)
 
 @journal_bp.route("/view/<int:journal_id>")
 @login_required
