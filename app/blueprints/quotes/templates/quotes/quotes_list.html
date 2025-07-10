@@ -8,11 +8,12 @@
 
 {% if user_quotes %}
 <div class="table-responsive">
-    <table class="table table-bordered bg-white">
+    <table class="table table-bordered">
         <thead class="table-light">
             <tr>
                 <th>#</th>
-                <th>Date & Quote</th>
+                <th>Date</th>
+                <th>Quote</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,16 +21,13 @@
             {% for quote in user_quotes %}
             <tr>
                 <td>Quote {{ loop.index }}</td>
-                <td style="white-space: pre-wrap;">
-                    {{ quote.date.strftime('%d/%m/%Y') }}<br>
-                    {{ quote.quotes }}
-                </td>
+                <td class="quote-date">{{ quote.date.strftime('%d/%m/%Y') }}</td>
+                <td class="quote-text" style="white-space: pre-wrap;">~ {{ quote.quotes.strip() }}</td>
                 <td>
                     <form action="{{ url_for('quotes.delete_quote', quote_id=quote.id) }}" method="POST" style="display:inline;">
                         {{ delete_form.hidden_tag() }}
-                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this quote?')"> Delete
-                        </button> <br>
-                        <a href="{{ url_for('quotes.edit_quote', quote_id=quote.id) }}" class="btn btn-warning">✏️ Edit</a>
+                        <a href="{{ url_for('quotes.edit_quote', quote_id=quote.id) }}" class="btn btn-sm btn-danger edit-btn" style="margin-bottom: 5px;">Edit</a><br>
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this quote?')">Delete</button>
                     </form>
                 </td>
             </tr>

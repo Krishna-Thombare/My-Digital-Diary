@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash, session
 from . import notes_bp
-from datetime import date
+from datetime import date, datetime
 from app.forms.notes_form import NoteForm, DeleteForm
 from app.models import UserNotes, db
 from app.utils.decorators import login_required
@@ -17,6 +17,8 @@ def notes_list():
 @login_required
 def add_note():
     form = NoteForm()
+    today = datetime.now()
+    date_str = f"{today.day} {today.strftime('%B, %Y')}"
     if form.validate_on_submit():
         new_note = UserNotes(
             user_id=session["user_id"],
@@ -30,7 +32,7 @@ def add_note():
         db.session.commit()
         flash("Note added successfully!", "success")
         return redirect(url_for("notes.notes_list"))
-    return render_template("notes/notes_add.html", form=form)
+    return render_template("notes/notes_add.html", form=form, current_date=date_str)
 
 @notes_bp.route("/view/<int:note_id>")
 @login_required

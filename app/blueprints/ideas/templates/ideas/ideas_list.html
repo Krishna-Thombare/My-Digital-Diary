@@ -8,11 +8,12 @@
 
 {% if user_ideas %}
 <div class="table-responsive">
-    <table class="table table-bordered bg-white">
+    <table class="table table-bordered">
         <thead class="table-light">
             <tr>
                 <th>#</th>
-                <th>Date & Quote</th>
+                <th>Date</th>
+                <th>Idea</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,17 +21,13 @@
             {% for idea in user_ideas %}
             <tr>
                 <td>Idea {{ loop.index }}</td>
-                <td style="white-space: pre-wrap;">
-                    {{ idea.date.strftime('%d/%m/%Y') }}<br>
-                    {{ idea.ideas }}
-                    
-                </td>
+                <td class="idea-date">{{ idea.date.strftime('%d/%m/%Y') }}</td>
+                <td class="idea-text">* {{ idea.ideas.strip() }}</td>
                 <td>
                     <form action="{{ url_for('ideas.delete_idea', idea_id=idea.id) }}" method="POST" style="display:inline;">
                         {{ delete_form.hidden_tag() }}
-                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this idea?')"> Delete
-                        </button> <br>
-                        <a href="{{ url_for('ideas.edit_idea', idea_id=idea.id) }}" class="btn btn-warning">✏️ Edit</a>
+                        <a href="{{ url_for('ideas.edit_idea', idea_id=idea.id) }}" class="btn btn-sm btn-danger edit-btn" style="margin-bottom: 5px;">Edit</a><br>
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this idea?')">Delete</button>
                     </form>
                 </td>
             </tr>

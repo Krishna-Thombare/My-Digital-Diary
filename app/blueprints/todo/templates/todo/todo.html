@@ -2,9 +2,10 @@
 
 {% block content %}
 <h2>📝 To-Do List</h2>
+<br>
 
 <!-- Add Task Form -->
-<form method="POST" action="{{ url_for('todo.todo') }}" class="mb-4">
+<form method="POST" action="{{ url_for('todo.todo') }}" class="mb-3">
     {{ form.hidden_tag() }}
     {{ form.task.label }} {{ form.task(size=40, placeholder="Write your task...") }}
     <button type="submit" class="btn btn-primary btn-sm">Add</button>

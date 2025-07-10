@@ -1,16 +1,27 @@
 {% extends "base.html" %}
+
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <h2>✏️ Edit Quote Entry</h2>
-    <a href="{{ url_for('quotes.quotes_list', quote_id=quote_id) }}" class="btn btn-secondary">🔙 Back</a>
+    <div class="d-flex align-items-center">
+        <a href="{{ url_for('quotes.quotes_list') }}" class="vintage-icon-btn">←</a>
+        <span class="vintage-label ms-2">Back</span>
+    </div>
+
+    <h2 class="text-center flex-grow-1 vintage-title">Edit Quote</h2>
+
+    <div class="d-flex align-items-center">
+        <span class="vintage-label me-2">Save</span>
+        <button form="editQuoteForm" type="submit" class="vintage-icon-btn">✓</button>
+    </div>
 </div>
 
-<form method="POST">
-    {{ form.hidden_tag() }}
-    <div class="mb-3">
-        {{ form.quotes.label }}<br>
-        {{ form.quotes(class="form-control", rows=6) }}
-    </div>
-    <button type="submit" class="btn btn-primary">💾 Save Changes</button>
-</form>
+<div class="vintage-diary-box">
+    <form id="editQuoteForm" method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="vintage-body">
+            {{ form.quotes(class="vintage-textarea", rows="8", placeholder="Edit your quote...") }}
+        </div>
+    </form>
+</div>
 {% endblock %}

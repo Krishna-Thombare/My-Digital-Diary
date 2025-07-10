@@ -2,15 +2,29 @@
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <h2>📖 Journal Entry</h2>
-    <a href="{{ url_for('journal.journal_list') }}" class="btn btn-secondary">🔙 Back</a>
-    <a href="{{ url_for('journal.edit_journal', journal_id=entry.id) }}" class="btn btn-warning">✏️ Edit</a>
+    <div class="d-flex align-items-center">
+        <a href="{{ url_for('journal.journal_list') }}" class="vintage-icon-btn">←</a>
+        <span class="vintage-label ms-2">Back</span>
+    </div>
+
+    <h2 class="text-center flex-grow-1 vintage-title">Your Journal</h2>
+
+    <div class="d-flex align-items-center">
+        <span class="vintage-label me-2">Edit</span>
+        <a href="{{ url_for('journal.edit_journal', journal_id=entry.id) }}" class="vintage-icon-btn">✏️</a>
+    </div>
 </div>
 
-<h4>{{ entry.date.strftime('%d/%m/%Y') }} - {{ entry.topic_name }}</h4>
-<hr>
+<div class="vintage-diary-box">
+    <div class="vintage-header">
+        <span class="journal-date">{{ entry.date.strftime('%d/%m/%Y') }}</span> - 
+        <span class="vintage-topic-input disabled">{{ entry.topic_name }}</span>
+        <hr class="vintage-line">
+    </div>
 
-<div class="bg-white p-4 border rounded" style="min-height: 500px; width: 100%; white-space: pre-wrap;">
-    {{ entry.journal_texts }}
+    <div class="vintage-body">
+        <hr class="line">
+        <div class="vintage-textarea readonly" style="white-space: pre-wrap;">{{ entry.journal_texts }}</div>
+    </div>
 </div>
 {% endblock %}
