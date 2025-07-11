@@ -1,24 +1,36 @@
 {% extends "base.html" %}
+
 {% block content %}
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h2>✏️ Edit Note Entry</h2>
-    <a href="{{ url_for('notes.view_note', note_id=note_id) }}" class="btn btn-secondary">🔙 Back</a>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex align-items-center">
+        <a href="{{ url_for('notes.notes_list') }}" class="vintage-icon-btn">←</a>
+        <span class="vintage-label ms-2">Back</span>
+    </div>
+
+    <h2 class="text-center flex-grow-1 vintage-title">Edit Note</h2>
+
+    <div class="d-flex align-items-center">
+        <span class="vintage-label me-2">Save</span>
+        <button form="editNoteForm" type="submit" class="vintage-icon-btn">✓</button>
+    </div>
 </div>
 
-<form method="POST">
-    {{ form.hidden_tag() }}
-    <div class="mb-3">
-        {{ form.note_name.label }}<br>
-        {{ form.note_name(class="form-control") }}
-    </div>
-    <div class="mb-3">
-        {{ form.notes.label }}<br>
-        {{ form.notes(class="form-control", rows=6) }}
-    </div>
-    <div class="mb-3">
-        {{ form.source_links.label }}<br>
-        {{ form.source_links(class="form-control", rows=6) }}
-    </div>
-    <button type="submit" class="btn btn-primary">💾 Save Changes</button>
-</form>
+<div class="vintage-diary-box">
+    <form id="editNoteForm" method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="vintage-header">
+            {{ form.note_name(class="vintage-topic-input", placeholder="Title") }}
+            <hr class="vintage-line">
+        </div>
+
+        <div class="vintage-body">
+            {{ form.notes(class="vintage-textarea", rows=8, placeholder="Edit your note...") }}
+
+            <hr class="line">
+
+            {{ form.source_links(class="vintage-textarea", rows=3, placeholder="Edit sources if any...") }}
+        </div>
+    </form>
+</div>
 {% endblock %}

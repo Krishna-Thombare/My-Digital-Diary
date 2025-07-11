@@ -24,9 +24,7 @@
     <hr>
 
     <div class="vintage-body">
-        <div style="white-space: pre-wrap; min-height: 300px; text-indent: 0;">
-            {{ entry.notes }}
-        </div>
+        <div class="vintage-textarea readonly" style="white-space: pre-wrap;">{{ entry.notes }}</div>
 
         {% if entry.source_links %}
         <hr class="line">

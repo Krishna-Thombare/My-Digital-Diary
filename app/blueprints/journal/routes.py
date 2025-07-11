@@ -51,7 +51,7 @@ def edit_journal(journal_id):
         db.session.commit()
         flash("Journal entry updated!", "success")
         return redirect(url_for("journal.view_journal", journal_id=journal_id))
-    return render_template("journal/journal_edit.html", form=form, journal_id=journal_id)
+    return render_template("journal/journal_edit.html", form=form, journal_id=journal_id, entry=entry)
     
 @journal_bp.route("/delete/<int:journal_id>", methods=["POST"])
 @login_required
