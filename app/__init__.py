@@ -21,6 +21,7 @@ def create_app():
     csrf.init_app(app)
 
     # Import and register blueprints
+    from app.blueprints.about.routes import about_bp
     from app.blueprints.home.routes import home_bp
     from app.blueprints.auth.routes import auth_bp
     from app.blueprints.journal.routes import journal_bp
@@ -29,6 +30,7 @@ def create_app():
     from app.blueprints.ideas.routes import ideas_bp
     from app.blueprints.todo.routes import todo_bp
 
+    app.register_blueprint(about_bp)
     app.register_blueprint(home_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(journal_bp)

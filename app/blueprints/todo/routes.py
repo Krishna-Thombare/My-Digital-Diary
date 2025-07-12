@@ -27,7 +27,7 @@ def todo():
         flash("Task added!", "success")
         return redirect(url_for('todo.todo'))
 
-    todos = UserTodoList.query.filter_by(user_id=session['user_id']).all()
+    todos = UserTodoList.query.filter_by(user_id=session['user_id']).order_by(UserTodoList.date.desc()).all()
     return render_template('todo/todo.html', form=form, todos=todos)
 
 # Toggle Status - Check Box Tick
