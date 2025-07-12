@@ -20,6 +20,7 @@
     {% include 'navbar.html' %}
 
     <div class="layout">
+      {% if not hide_sidebar %}
         <!-- Sidebar -->
         <div class="sidebar">
             <h2>📒 My Diary</h2>
@@ -37,6 +38,7 @@
             <br>
             <a href="{{ url_for('auth.logout') }}">🚪 Logout </a>
         </div>
+      {% endif %}
 
         <!-- Main Content -->
         <div class="content">
