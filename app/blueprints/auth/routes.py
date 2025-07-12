@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, flash, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import auth_bp
-from .forms import LoginForm, RegisterForm
+from app.forms.auth_forms import LoginForm, RegisterForm
 from app.models import db, User
 
 @auth_bp.route('/register', methods=['GET', 'POST'])
