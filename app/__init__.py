@@ -29,6 +29,7 @@ def create_app():
     from app.blueprints.quotes.routes import quotes_bp
     from app.blueprints.ideas.routes import ideas_bp
     from app.blueprints.todo.routes import todo_bp
+    from app.blueprints.contact.routes import contact_bp
 
     app.register_blueprint(about_bp)
     app.register_blueprint(home_bp)
@@ -38,5 +39,6 @@ def create_app():
     app.register_blueprint(quotes_bp)
     app.register_blueprint(ideas_bp)
     app.register_blueprint(todo_bp)
+    app.register_blueprint(contact_bp)
 
     return app
