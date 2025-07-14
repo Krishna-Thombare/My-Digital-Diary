@@ -4,21 +4,32 @@ from config import Config
 from flask_migrate import Migrate
 from dotenv import load_dotenv
 from flask_wtf import CSRFProtect
+from flask_mail import Mail
 import os
 
 db = SQLAlchemy()
 migrate = Migrate()
 csrf = CSRFProtect()
+mail = Mail()
 
 def create_app():
     load_dotenv()  # Loads from .env
 
     app = Flask(__name__, template_folder='templates', static_folder='static')
     app.config.from_object('config.Config')
+    
+    # Mail Configuration - (To receive users contact us messages)
+    app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+    app.config['MAIL_PORT'] = 587
+    app.config['MAIL_USE_TLS'] = True
+    app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+    app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')   # 16-Digit App Password (*Not Gmail Password*)
+    app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER')
 
-    db.init_app(app)
-    migrate.init_app(app, db)
-    csrf.init_app(app)
+    db.init_app(app)              # Database Initilization
+    migrate.init_app(app, db)     # Database Migration Initilization
+    csrf.init_app(app)            # CSRF Token Initilization
+    mail.init_app(app)            # Mail Initialization
 
     # Import and register blueprints
     from app.blueprints.about.routes import about_bp
