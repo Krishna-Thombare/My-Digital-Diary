@@ -1,0 +1,112 @@
+/* Floating AI chat button */
+#ai-chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  background-color: #007BFF;
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  border: none;
+  text-align: center;
+  line-height: 55px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#ai-chat-box {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 90px;
+  width: 670px;
+  height: 330px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  z-index: 9999;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#ai-chat-box.open {
+  display: flex;
+}
+
+/* Header */
+#ai-chat-header {
+  background-color: #007BFF;
+  color: white;
+  height: 47px;
+  padding: 10px 12px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#ai-chat-messages {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+#ai-chat-input-container {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Input field */
+#ai-chat-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-right: 8px;
+  outline: none;
+}
+
+/* Send button */
+#ai-send-button,
+#ai-chat-input-container button {
+  padding: 8px 12px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* User message bubble */
+#ai-chat-messages .user {
+  background-color: #DCF8C6;
+  padding: 8px;
+  margin: 4px 0;
+  border-radius: 10px;
+  align-self: flex-end;
+  max-width: 85%;
+}
+
+/* Assistant message bubble */
+#ai-chat-messages .assistant {
+  background-color: #F1F0F0;
+  padding: 8px;
+  margin: 4px 0;
+  border-radius: 10px;
+  align-self: flex-start;
+  max-width: 85%;
+}
+
+/* Typing indicator */
+.typing-placeholder {
+  font-style: italic;
+  opacity: 0.7;
+}

@@ -1,7 +1,7 @@
 from flask import request, jsonify
 from . import chat_bp
-from app import csrf
 from sarvamai import SarvamAI
+from app import csrf
 from dotenv import load_dotenv
 import os
 
@@ -10,7 +10,7 @@ load_dotenv()
 client = SarvamAI(api_subscription_key=os.getenv('SARVAM_API_KEY'))
 
 @csrf.exempt
-@chat_bp.route('/', methods=['POST'])
+@chat_bp.route('', methods=['POST'])
 def ai_chat():
     data = request.get_json()
     user_message = data.get("message", "").strip()
