@@ -6,6 +6,7 @@ from app.models import db, UserJournal
 from flask import jsonify
 from app.utils.decorators import login_required
 
+# Journal Entries Listing
 @journal_bp.route("/")
 @login_required
 def journal_list():
@@ -14,6 +15,7 @@ def journal_list():
     delete_form = DeleteForm()
     return render_template("journal/journal_list.html", journals=journals, delete_form=delete_form)
 
+# Adding New Journal Entry
 @journal_bp.route("/add", methods=["GET", "POST"])
 @login_required
 def add_journal():
@@ -34,12 +36,14 @@ def add_journal():
         return redirect(url_for("journal.journal_list"))
     return render_template("journal/journal_add.html", form=form, current_date=date_str)
 
+# Viewing Juornal Entry
 @journal_bp.route("/view/<int:journal_id>")
 @login_required
 def view_journal(journal_id):
     entry = UserJournal.query.get_or_404(journal_id)
     return render_template("journal/journal_read.html", entry=entry)
 
+# Edit Journal Entry
 @journal_bp.route("/view/<int:journal_id>/edit", methods=["GET", "POST"])
 @login_required
 def edit_journal(journal_id):
@@ -53,7 +57,8 @@ def edit_journal(journal_id):
         flash("Journal entry updated!", "success")
         return redirect(url_for("journal.view_journal", journal_id=journal_id))
     return render_template("journal/journal_edit.html", form=form, journal_id=journal_id, entry=entry)
-    
+
+# Delete Journal Entry
 @journal_bp.route("/delete/<int:journal_id>", methods=["POST"])
 @login_required
 def delete_journal(journal_id):
@@ -63,6 +68,7 @@ def delete_journal(journal_id):
     flash("Journal entry deleted.", "info")
     return redirect(url_for("journal.journal_list"))
 
+# Summarize Journal Entry
 @journal_bp.route("/get-journal-content/<int:journal_id>")
 def get_journal_content(journal_id):
     entry = UserJournal.query.get_or_404(journal_id)

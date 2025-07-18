@@ -1,26 +1,6 @@
-.navbar {
-    width: 100%;
-    background-color: #fae5ce;
-    padding: 15px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-}
-
-.nav-link {
-    color: #3e2f1c;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 20px;
-}
-
-.nav-link:hover {
-    text-decoration: underline;
+.home-page .navbar {
+    background-color: transparent;
+    color: white;
 }
 
 body {
@@ -28,18 +8,19 @@ body {
     padding: 0;
     font-family: 'Inter', sans-serif;
     background-color: #f4f1ee;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 100vh;
+    padding-top: 100px;   /* for fixed navbar */
+    overflow: auto;   /* disables scrolling */
 }
 
 .container {
     display: flex;
-    height: 80vh;
-    width: 80%;
+    height: 77vh;
+    width: 90%;
     max-width: 1000px;
+    margin: 0 auto;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
 .info-box {
@@ -51,29 +32,73 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: left;   /* Ensure text is left-aligned */
 }
 
 .info-box h1 {
     font-size: 2rem;
     color: #3e2f1c;
     margin-bottom: 10px;
+    text-align: left;
 }
 
 .info-box p, .info-box li {
     color: #4d3c2c;
     font-size: 1.1rem;
     margin: 6px 0;
+    text-align: left;
+}
+
+.info-box ul {
+    padding-left: 20px;
+    text-align: left;
 }
 
 .auth-boxes {
     width: 60%;
-    background-color: #fff;
+    background-color: #fae5ce;
     border-radius: 0 12px 12px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 20px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    padding: 20px;
+}
+
+.form-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.form-toggle button {
+    background-color: #e6d3b3;
+    color: #3e2f1c;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.form-toggle button.active {
+    background-color: #d4c0a3;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container > div {
+  transition: opacity 0.3s ease;
 }
 
 .auth-button {
@@ -85,10 +110,54 @@ body {
     font-weight: 600;
     font-size: 1.1rem;
     transition: background 0.3s ease;
+    border: 2px solid #d4b894;
+    cursor: pointer;
 }
 
 .auth-button:hover {
+    background-color: #d4b894;
+}
+
+.auth-form label {
+    color: #3e2f1c;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.auth-form .btn-primary {
+    background-color: #e6d3b3;
+    color: #3e2f1c;
+    font-weight: 600;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.auth-form .btn-primary:hover {
     background-color: #d4c0a3;
 }
 
+.auth-form .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
 
+.auth-form .form-control:focus {
+    outline: none;
+    border-color: #d4b894;
+    box-shadow: 0 0 5px rgba(212, 184, 148, 0.5);
+}
+
+.hidden {
+  display: none;
+}
