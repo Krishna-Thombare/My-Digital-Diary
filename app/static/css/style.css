@@ -14,14 +14,14 @@ body {
 /* Layout Container */
 .layout {
     display: flex;
-    height: 100vh; /* Full viewport height */
-    overflow: hidden; /* Prevent sidebar from scrolling */
+    height: 100vh;   /* Full viewport height */
+    overflow: hidden;   /* Prevent sidebar from scrolling */
 }
 
 /* Sidebar */
 .sidebar {
     width: 220px;
-    background-color: #483C32; /* Coffee brown */
+    background-color: #483C32;  
     color: #ffffff;
     padding: 30px 20px;
     flex-shrink: 0;
@@ -46,7 +46,7 @@ body {
 }
 
 .sidebar a:hover {
-    background-color: #fcbe3a; /* Golden highlight */
+    background-color: #fcbe3a; 
 }
 
 /* Content Area */
@@ -168,7 +168,7 @@ td {
 }
 
 .journal-container {
-    background-color: #fff8dc; /* Light cream background */
+    background-color: #fff8dc; 
     border: 1px solid #ccc;
     padding: 0;
     margin: 20px auto;
@@ -266,7 +266,7 @@ td {
     text-decoration: underline;
 }
 
-/* Delete Button like in image */
+/* Delete Button */
 .btn-danger {
     background: none;
     color: red;
@@ -280,6 +280,23 @@ td {
 .btn-danger:hover {
     text-decoration: underline;
     color: red; 
+    background: none;
+}
+
+/* Summarize Button */
+.btn-summarize {
+    background: none;
+    color: #2563eb;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-summarize:hover {
+    text-decoration: underline;
     background: none;
 }
 
@@ -298,6 +315,13 @@ td {
 }
 
 /* ===== Vintage Journal Style ===== */
+
+.vintage-body {
+  max-height: 400px; /* or any height you prefer */
+  overflow-y: auto;
+  padding-right: 10px; /* optional, to avoid scrollbar overlap */
+}
+
 .vintage-title {
     font-family: 'Comic Sans MS', cursive;
     font-size: 26px;
@@ -353,6 +377,8 @@ td {
     color: #4b3621;
     min-height: 300px;
     padding-top: 10px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
 }
 
 .vintage-textarea:focus {
@@ -368,7 +394,7 @@ td {
 /* Handwriting Font */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap');
 
-/* === Icon Button with Label === */
+/* Icon Button with Label */
 .vintage-icon-btn {
     width: 40px;
     height: 40px;
@@ -396,7 +422,7 @@ td {
     color: #3e2f1c;
 }
 
-/* === Edit Button - Idea & Quote === */
+/*  Edit Button - Idea & Quote  */
 
 .edit-btn {
     background-color: transparent;

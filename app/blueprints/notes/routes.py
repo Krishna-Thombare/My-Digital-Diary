@@ -3,6 +3,7 @@ from . import notes_bp
 from datetime import date, datetime
 from app.forms.notes_form import NoteForm, DeleteForm
 from app.models import UserNotes, db
+from flask import jsonify
 from app.utils.decorators import login_required
 
 @notes_bp.route("/")
@@ -63,5 +64,9 @@ def delete_note(note_id):
     db.session.commit()
     flash("Note entry deleted.", "info")
     return redirect(url_for("notes.notes_list"))
-    
+
+@notes_bp.route("/get-notes-content/<int:note_id>")
+def get_notes_content(note_id):
+    entry = UserNotes.query.get_or_404(note_id)
+    return jsonify({"notes": entry.notes})  
 
