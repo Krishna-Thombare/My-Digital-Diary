@@ -1,36 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome | My Digital Diary</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="UTF-8">
+  <title>My Digital Diary</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
 </head>
 <body>
-{% include 'navbar.html' %}
-<div class="container">
-    <!-- Left vertical info box -->
+
+    {% include 'navbar.html' %}
+
+  <div class="container">
+    <!-- Left: Info Box -->
     <div class="info-box">
-        <h1>Welcome 📔</h1>
-        <p>My Digital Diary helps you store:</p>
-        <ul>
-            <li>📝 Notes</li>
-            <li>💡 Ideas</li>
-            <li>📓 Journal</li>
-            <li>💬 Quotes</li>
-            <li>✅ Tasks</li>
-        </ul>
-        <p>Your personal companion for self-growth and productivity.</p>
+      <h1>Welcome to Your Digital Diary</h1>
+      <p>Write, Reflect, and Grow</p>
+      <ul>
+        <li>Private & secure</li>
+        <li>Summarize your thoughts</li>
+        <li>Simple, vintage-inspired look</li>
+      </ul>
     </div>
 
-    <!-- Right login/register box -->
+    <!-- Right: Auth Boxes -->
     <div class="auth-boxes">
-        <a href="{{ url_for('auth.login') }}" class="auth-button">Login</a>
-        <a href="{{ url_for('auth.register') }}" class="auth-button">Register</a>
+      <div class="form-toggle" id="form-toggle">
+        <button id="show-login" class="active">Login</button>
+        <button id="show-register">Register</button>
+      </div>
+
+      <div class="form-container">
+        <div id="login-form" style="display: none;" class="auth-form hidden">
+          <form method="POST" action="{{ url_for('auth.login') }}" class="auth-form">
+            {{ login_form.hidden_tag() }}
+            <div class="mb-3">
+              {{ login_form.username.label }}
+              {{ login_form.username(class="form-control") }}
+            </div>
+            <div class="mb-3">
+              {{ login_form.password.label }}
+              {{ login_form.password(class="form-control") }}
+            </div>
+            <div class="d-grid">
+              {{ login_form.submit(class="btn btn-primary auth-button") }}
+            </div>
+          </form>
+        </div>
+
+        <div id="register-form" style="display: none;" class="auth-form hidden">
+          <form method="POST" action="{{ url_for('auth.register') }}" class="auth-form">
+            {{ register_form.hidden_tag() }}
+            <div class="mb-3">
+              {{ register_form.username.label }}
+              {{ register_form.username(class="form-control") }}
+            </div>
+            <div class="mb-3">
+              {{ register_form.password.label }}
+              {{ register_form.password(class="form-control") }}
+            </div>
+            <div class="mb-3">
+              {{ register_form.confirm_password.label }}
+              {{ register_form.confirm_password(class="form-control") }}
+            </div>
+            <div class="d-grid">
+              {{ register_form.submit(class="btn btn-primary auth-button") }}
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+
+  <script>
+    document.getElementById('show-login').addEventListener('click', function () {
+      // Hide the toggle buttons
+      document.getElementById('form-toggle').style.display = 'none';
+      // Show login form
+      document.getElementById('login-form').style.display = 'block';
+      document.getElementById('register-form').style.display = 'none';
+    });
+
+    document.getElementById('show-register').addEventListener('click', function () {
+      // Hide the toggle buttons
+      document.getElementById('form-toggle').style.display = 'none';
+      // Show register form
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('register-form').style.display = 'block';
+    });
+  </script>
 
 </body>
 </html>

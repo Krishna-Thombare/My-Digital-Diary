@@ -9,25 +9,24 @@
 body {
     background-color: #f7efcf;
     min-height: 100vh;
+    
 }
 
 /* Layout Container */
 .layout {
     display: flex;
-    height: 100vh;   /* Full viewport height */
-    overflow: hidden;   /* Prevent sidebar from scrolling */
+    height: 100vh;            /* Full viewport height */
+    overflow: hidden;         /* Prevent entire page from scrolling */
 }
 
 /* Sidebar */
 .sidebar {
     width: 220px;
-    background-color: #483C32;  
+    background-color: #483C32;
     color: #ffffff;
-    padding: 30px 20px;
+    padding: 100px 20px 30px;
     flex-shrink: 0;
-    min-height: 100vh;
-    position: sticky;
-    top: 0;
+    overflow: hidden;         /* Prevent sidebar scroll */
 }
 
 .sidebar h2 {
@@ -52,9 +51,11 @@ body {
 /* Content Area */
 .content {
     flex: 1;
+    overflow-y: auto;         /* Allow only content to scroll */
     padding: 40px;
+    padding-top: 80px;
     background-color: #fff;
-    min-height: 100vh;
+
 }
 
 .content h1, .content h2 {
@@ -128,27 +129,6 @@ input[type="text"] {
     0% { opacity: 1; }
     80% { opacity: 1; }
     100% { opacity: 0; display: none; }
-}
-
-/* Navbar */
-.navbar {
-    background-color: hsl(0, 0%, 100%);
-    padding: 10px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    font-weight: 600;
-}
-
-.navbar a {
-    text-decoration: none;
-    color: #333;
-    margin-left: 15px;
-}
-
-.navbar a:hover {
-    color: #5e91ff;
 }
 
 .table {
@@ -238,7 +218,7 @@ td {
 
 .table {
     border: 2px solid #c7b299;     /* Outer border only */
-    border-collapse: collapse;     /* Merge borders, remove gaps */
+    border-collapse: collapse;     /* Merge borders & remove gaps */
     border-radius: 12px;
     width: 100%;
     overflow: hidden;
@@ -317,9 +297,9 @@ td {
 /* ===== Vintage Journal Style ===== */
 
 .vintage-body {
-  max-height: 400px; /* or any height you prefer */
+  max-height: 400px; 
   overflow-y: auto;
-  padding-right: 10px; /* optional, to avoid scrollbar overlap */
+  padding-right: 10px; /* avoid scrollbar overlap */
 }
 
 .vintage-title {
@@ -440,7 +420,6 @@ td {
 }
 
 /* Footer */
-
 footer {
     font-size: 0.9rem;
     color: #555;
@@ -462,7 +441,7 @@ footer a {
 
 .message-box {
     height: 200px;        /* vertical height */
-    resize: none;         /* optional: prevents user from resizing */
+    resize: none;         /* prevents user from resizing */
 }
 
 
