@@ -3,6 +3,7 @@ from . import journal_bp
 from datetime import date, datetime
 from app.forms.journal_form import JournalForm, DeleteForm
 from app.models import db, UserJournal
+from flask import jsonify
 from app.utils.decorators import login_required
 
 @journal_bp.route("/")
@@ -61,3 +62,9 @@ def delete_journal(journal_id):
     db.session.commit()
     flash("Journal entry deleted.", "info")
     return redirect(url_for("journal.journal_list"))
+
+@journal_bp.route("/get-journal-content/<int:journal_id>")
+def get_journal_content(journal_id):
+    entry = UserJournal.query.get_or_404(journal_id)
+    return jsonify({"journal_texts": entry.journal_texts})
+

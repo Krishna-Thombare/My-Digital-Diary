@@ -64,45 +64,7 @@
         </div>
     </div>
 
-    <!-- AI Chat Button -->
-  <div id="ai-chat-button" onclick="toggleChat()">
-    💬
-  </div>
-
-  <!-- AI Chat Popup Box -->
-  <div id="ai-chat-box">
-    <div id="ai-chat-header">
-      <span>AI Assistant</span>
-      <button id="ai-chat-header-close-button" onclick="toggleChat()">✖</button>
-    </div>
-
-    <div id="ai-chat-messages">
-      <!-- AI Chat Placeholders -->
-      <div id="ai-chat-suggestions">
-        <div class="suggestion s1" onclick="insertSuggestion('Make a note on Chhatrapati Shivaji Maharaj.')">
-          Make a note on Chhatrapati Shivaji Maharaj.
-        </div>
-        <div class="suggestion s2" onclick="insertSuggestion('Give notes on the Big Bang Theory!')">
-          Give notes on the Big Bang Theory!
-        </div>
-        <div class="suggestion s3" onclick="insertSuggestion('Need help writing my journal.')">
-          Need help writing my journal.
-        </div>
-        <div class="suggestion s4" onclick="insertSuggestion('Ideas for Python project!')">
-          Ideas for Python Project!
-        </div>
-        <div class="suggestion s5" onclick="insertSuggestion('Give inspirational quotes.')">
-          Give inspirational quotes.
-        </div>
-      </div>
-    </div>
-
-    <div id="ai-chat-input-container">
-      <input type="text" id="ai-chat-input" placeholder="Ask me anything..." />
-      <button id="ai-send-button" onclick="sendMessage()">Send</button>   
-      <button id="ai-clear-button" onclick="clearChat()">Clear</button>
-    </div>
-  </div>
+    {% include 'ai_chat_placeholders.html' %}
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -112,6 +74,9 @@
 
     <!-- marked.js - Converts Markdown to HTML -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- AI Summarize Feature -->
+    <script src="{{ url_for('static', filename='js/ai_summarize.js') }}"></script>
 
 </body>
 </html>
