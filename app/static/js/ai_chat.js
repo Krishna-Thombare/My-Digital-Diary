@@ -36,7 +36,7 @@ function sendMessage() {
   if (suggestions) suggestions.style.display = "none";
 
   // Show typing/loading animation
-  appendMessage("assistant", "Typing...", true);
+  appendMessage("assistant", ". . .", true);
 
   fetch("/chat", {
     method: "POST",

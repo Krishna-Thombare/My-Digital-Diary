@@ -7,12 +7,12 @@
 .aboutus-title {
   font-family: 'Comic Sans MS', cursive;
   font-size: 26px;
-  color: #3e2f1c;
+  color: #000000;
 }
 
 .aboutus-diary-box {
-  background: #fffbea;
-  border: 2px solid #e4d5b7;
+  background: #feffb3;
+  border: 2px solid #000000;
   border-radius: 12px;
   padding: 24px;
 }
@@ -24,7 +24,7 @@
   resize: none;
   font-family: 'Dancing Script', cursive;
   font-size: 18px;
-  color: #4b3621;
+  color: #000000;
   min-height: 300px;
   padding-top: 10px;
   white-space: pre-wrap;
@@ -38,9 +38,9 @@
 .aboutus-icon-btn {
   width: 40px;
   height: 40px;
-  background-color: #fffaf0;
-  border: 2px solid #3e2f1c;
-  color: #3e2f1c;
+  background-color: #feffb7;
+  border: 2px solid #000000;
+  color: #000000;
   font-size: 20px;
   display: inline-flex;
   align-items: center;
@@ -53,11 +53,11 @@
 }
 
 .aboutus-icon-btn:hover {
-  background-color: #fce8c8;
+  background-color: #fdff8f;
 }
 
 .aboutus-label {
   font-family: 'Comic Sans MS', cursive, sans-serif;
   font-size: 16px;
-  color: #3e2f1c;
+  color: #000000;
 }

@@ -6,7 +6,7 @@
     height: 45px;
     line-height: 40px;
     z-index: 1000;
-    background-color: #fcfff4;
+    background-color: #9c7062;
     padding: 0px 30px;
     display: flex;
     justify-content: space-between;
@@ -18,7 +18,7 @@
 .navbar-left {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #3e2f1c;
+    color: #ffffff;
 }
 
 .navbar-right {
@@ -28,7 +28,7 @@
 }
 
 .nav-link {
-    color: #3e2f1c;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
 }

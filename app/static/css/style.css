@@ -16,7 +16,7 @@
 /* Sidebar */
 .sidebar {
     width: 220px;
-    background-color: #483C32;
+    background-color: #000000;
     color: #ffffff;
     padding: 100px 20px 30px;
     flex-shrink: 0;
@@ -183,6 +183,22 @@ input[type="text"] {
     color: rgb(0, 75, 214);
 }
 
+/* AI Chat Box Button */
+#ai-chat-header-close-btn {
+  background-color: #e74c3c;     
+  color: white;                  
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#ai-chat-header-close-btn:hover {
+  background-color: #c0392b;     
+}
+
 /* Footer */
 footer {
     font-size: 0.9rem;
@@ -193,5 +209,3 @@ footer a {
     text-decoration: none;
     font-weight: 600;
 }
-
-
