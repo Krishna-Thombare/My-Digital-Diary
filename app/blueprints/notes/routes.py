@@ -65,6 +65,7 @@ def delete_note(note_id):
     flash("Note entry deleted.", "info")
     return redirect(url_for("notes.notes_list"))
 
+# Summariza Notes - (AI Summarization Feature)
 @notes_bp.route("/get-notes-content/<int:note_id>")
 def get_notes_content(note_id):
     entry = UserNotes.query.get_or_404(note_id)
