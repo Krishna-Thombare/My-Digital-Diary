@@ -1,41 +1,42 @@
+{% set feature_css = 'contactus' %}
 {% extends "base.html" %}
 {% set hide_sidebar = true %}
-
 {% block content %}
+
 <div class="d-flex justify-content-between align-items-center mb-3">
     <div class="d-flex align-items-center">
-        <a href="{{ back_url }}" class="vintage-icon-btn">←</a>
-        <span class="vintage-label ms-2">Back</span>
+        <a href="{{ back_url }}" class="contactus-icon-btn">←</a>
+        <span class="contactus-label ms-2">Back</span>
     </div>
 
-    <h2 class="text-center flex-grow-1 vintage-title">Contact Us</h2>
+    <h2 class="text-center flex-grow-1 contactus-title">Contact Us</h2>
 </div>
 
-<div class="vintage-diary-box">
-    <form method="POST" class="vintage-body">
+<div class="contactus-diary-box">
+    <form method="POST" class="contactus-body">
         {{ form.hidden_tag() }}
 
-        <div class="mb-3">
-            {{ form.name.label(class="vintage-label") }}
-            {{ form.name(class="vintage-topic-input", placeholder="Your Name") }}
+        <div class="mb-2">
+            {{ form.name.label(class="contactus-label") }}
+            {{ form.name(class="contactus-topic-input", placeholder="Your Name") }}
         </div>
 
-        <div class="mb-3">
-            {{ form.email.label(class="vintage-label") }}
-            {{ form.email(class="vintage-topic-input", placeholder="Your Email") }}
+        <div class="mb-2">
+            {{ form.email.label(class="contactus-label") }}
+            {{ form.email(class="contactus-topic-input", placeholder="Your Email") }}
         </div>
 
-        <div class="mb-3">
-            {{ form.phone_no.label(class="vintage-label") }}
-            {{ form.phone_no(class="vintage-topic-input", placeholder="Your Phone Number") }}
+        <div class="mb-2">
+            {{ form.phone_no.label(class="contactus-label") }}
+            {{ form.phone_no(class="contactus-topic-input", placeholder="Your Phone Number") }}
         </div>
 
-        <div class="mb-3">
-            {{ form.message.label(class="vintage-label") }}
-            {{ form.message(class="vintage-textarea message-box", placeholder="Write your questions or feedback...") }}
+        <div class="mb-2">
+            {{ form.message.label(class="contactus-label") }}
+            {{ form.message(class="contactus-textarea message-box mt-2", placeholder="Write your questions or feedback...") }}
         </div>
 
-        <div class="mt-3">
+        <div class="mt-2">
             {{ form.submit(class="btn btn-primary") }}
         </div>
     </form>

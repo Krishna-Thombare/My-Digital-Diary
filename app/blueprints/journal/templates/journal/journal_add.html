@@ -1,31 +1,32 @@
+{% set feature_css = 'journal' %}
 {% extends "base.html" %}
 {% block content %}
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <div class="d-flex align-items-center">
-        <a href="{{ url_for('journal.journal_list') }}" class="vintage-icon-btn">←</a>
-        <span class="vintage-label ms-2">Back</span>
+        <a href="{{ url_for('journal.journal_list') }}" class="journal-icon-btn">←</a>
+        <span class="journal-label ms-2">Back</span>
     </div>
 
-    <h2 class="text-center flex-grow-1 vintage-title">New Journal</h2>
+    <h2 class="text-center flex-grow-1 journal-title">New Journal</h2>
 
     <div class="d-flex align-items-center">
-        <span class="vintage-label me-2">Save</span>
-        <button form="journalForm" type="submit" class="vintage-icon-btn">✓</button>
+        <span class="journal-label me-2">Save</span>
+        <button form="journalForm" type="submit" class="journal-icon-btn">✓</button>
     </div>
 </div>
 
-<div class="vintage-diary-box">
+<div class="journal-diary-box">
     <form id="journalForm" method="POST">
         {{ form.hidden_tag() }}
-        <div class="vintage-header">
+        <div class="journal-header">
             <span class="journal-date">{{ current_date }}</span> - 
-            {{ form.topic_name(class="vintage-topic-input", placeholder="Topic Name...") }}
-            <hr class="vintage-line">
+            {{ form.topic_name(class="journal-topic-input", placeholder="Topic Name...") }}
+            <hr class="journal-line">
         </div>
-        <div class="vintage-body">
+        <div class="journal-body">
             <hr class="line">
-            {{ form.journal_texts(class="vintage-textarea", rows="14", placeholder="Start writing your thoughts here...") }}
+            {{ form.journal_texts(class="journal-textarea", rows="14", placeholder="Start writing your thoughts here...") }}
         </div>
     </form>
 </div>
