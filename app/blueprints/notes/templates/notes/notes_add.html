@@ -1,35 +1,36 @@
+{% set feature_css = 'notes' %}
 {% extends "base.html" %}
-
 {% block content %}
+
 <div class="d-flex justify-content-between align-items-center mb-3">
     <div class="d-flex align-items-center">
-        <a href="{{ url_for('notes.notes_list') }}" class="vintage-icon-btn">←</a>
-        <span class="vintage-label ms-2">Back</span>
+        <a href="{{ url_for('notes.notes_list') }}" class="notes-icon-btn">←</a>
+        <span class="notes-label ms-2">Back</span>
     </div>
 
-    <h2 class="text-center flex-grow-1 vintage-title">New Note</h2>
+    <h2 class="text-center flex-grow-1 notes-title">New Note</h2>
 
     <div class="d-flex align-items-center">
-        <span class="vintage-label me-2">Save</span>
-        <button form="noteForm" type="submit" class="vintage-icon-btn">✓</button>
+        <span class="notes-label me-2">Save</span>
+        <button form="noteForm" type="submit" class="notes-icon-btn">✓</button>
     </div>
 </div>
 
-<div class="vintage-diary-box">
+<div class="notes-diary-box">
     <form id="noteForm" method="POST">
         {{ form.hidden_tag() }}
 
-        <div class="vintage-header">
+        <div class="notes-header">
             <span class="journal-date">{{ current_date }}</span> -
-            {{ form.note_name(class="vintage-topic-input", placeholder="Note Title...") }}
-            <hr class="vintage-line">
+            {{ form.note_name(class="notes-topic-input", placeholder="Note Title...") }}
+            <hr class="notes-line">
         </div>
         <hr>
 
-        <div class="vintage-body">
-            {{ form.notes(class="vintage-textarea", rows="14", placeholder="Write your notes here...") }}
+        <div class="notes-body">
+            {{ form.notes(class="notes-textarea", rows="14", placeholder="Write your notes here...") }}
             <hr class="line">
-            {{ form.source_links(class="vintage-textarea", rows="4", placeholder="Source links (optional)...") }}
+            {{ form.source_links(class="notes-textarea", rows="4", placeholder="Source links (optional)...") }}
         </div>
     </form>
 </div>

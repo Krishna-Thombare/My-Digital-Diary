@@ -1,30 +1,31 @@
+{% set feature_css = 'notes' %}
 {% extends "base.html" %}
-
 {% block content %}
+
 <div class="d-flex justify-content-between align-items-center mb-3">
     <div class="d-flex align-items-center">
-        <a href="{{ url_for('notes.notes_list') }}" class="vintage-icon-btn">←</a>
-        <span class="vintage-label ms-2">Back</span>
+        <a href="{{ url_for('notes.notes_list') }}" class="notes-icon-btn">←</a>
+        <span class="notes-label ms-2">Back</span>
     </div>
 
-    <h2 class="text-center flex-grow-1 vintage-title">View Note</h2>
+    <h2 class="text-center flex-grow-1 notes-title">View Note</h2>
 
     <div class="d-flex align-items-center">
-        <span class="vintage-label me-2">Edit</span>
-        <a href="{{ url_for('notes.edit_note', note_id=entry.id) }}" class="vintage-icon-btn">✏️</a>
+        <span class="notes-label me-2">Edit</span>
+        <a href="{{ url_for('notes.edit_note', note_id=entry.id) }}" class="notes-icon-btn">✏️</a>
     </div>
 </div>
 
-<div class="vintage-diary-box">
-    <div class="vintage-header">
+<div class="notes-diary-box">
+    <div class="notes-header">
         <span class="journal-date">{{ entry.date.strftime('%d/%m/%Y') }}</span> - 
-        <span class="vintage-topic-input disabled">{{ entry.note_name }}</span>
-        <hr class="vintage-line">
+        <span class="notes-topic-input disabled">{{ entry.note_name }}</span>
+        <hr class="notes-line">
     </div>
     <hr>
 
-    <div class="vintage-body">
-        <div class="vintage-textarea readonly" style="white-space: pre-wrap;">{{ entry.notes }}</div>
+    <div class="notes-body">
+        <div class="notes-textarea readonly" style="white-space: pre-wrap;">{{ entry.notes }}</div>
 
         {% if entry.source_links %}
         <hr class="line">

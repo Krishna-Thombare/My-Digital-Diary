@@ -1,18 +1,19 @@
+{% set feature_css = 'aboutus' %}
 {% extends "base.html" %}
 {% set hide_sidebar = true %}
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
     <div class="d-flex align-items-center">
-        <a href="{{ back_url }}" class="vintage-icon-btn">←</a>
-        <span class="vintage-label ms-2">Back</span>
+        <a href="{{ back_url }}" class="aboutus-icon-btn">←</a>
+        <span class="aboutus-label ms-2">Back</span>
     </div>
-    <h2 class="text-center flex-grow-1 vintage-title">About Us</h2>
+    <h2 class="text-center flex-grow-1 aboutus-title">About Us</h2>
 </div>
 
-<div class="vintage-diary-box">
-    <div class="vintage-body">
-        <p class="vintage-textarea readonly" style="white-space: pre-wrap;">
+<div class="aboutus-diary-box">
+    <div class="aboutus-body">
+        <p class="aboutus-textarea readonly" style="white-space: pre-wrap;">
             Welcome to our platform!
 
             This project was built with passion to help users capture their thoughts, ideas, journals, and more — in a creative and mindful way.

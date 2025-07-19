@@ -1,0 +1,63 @@
+.aboutus-body {
+  max-height: 400px; 
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.aboutus-title {
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 26px;
+  color: #3e2f1c;
+}
+
+.aboutus-diary-box {
+  background: #fffbea;
+  border: 2px solid #e4d5b7;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.aboutus-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  resize: none;
+  font-family: 'Dancing Script', cursive;
+  font-size: 18px;
+  color: #4b3621;
+  min-height: 300px;
+  padding-top: 10px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.aboutus-textarea:focus {
+  outline: none;
+}
+
+.aboutus-icon-btn {
+  width: 40px;
+  height: 40px;
+  background-color: #fffaf0;
+  border: 2px solid #3e2f1c;
+  color: #3e2f1c;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+}
+
+.aboutus-icon-btn:hover {
+  background-color: #fce8c8;
+}
+
+.aboutus-label {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 16px;
+  color: #3e2f1c;
+}

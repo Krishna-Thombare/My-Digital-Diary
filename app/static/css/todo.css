@@ -1,0 +1,36 @@
+.content {
+    background-color: #ffffff;
+}
+
+/* Task Done */
+.done {
+    text-decoration: line-through;
+    color: rgb(255, 0, 0);
+}
+
+/* Task List */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.table {
+    border: 2px solid #c7b299;     /* Outer border only */
+}
+
+.table th,
+.table td {
+    background-color: #ffefd5;
+}
+
+.table th {
+    background-color: #faf6f1;
+}
+
+.table td a {
+    color: #000;
+}

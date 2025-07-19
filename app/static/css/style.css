@@ -6,12 +6,6 @@
     padding: 0;
 }
 
-body {
-    background-color: #f7efcf;
-    min-height: 100vh;
-    
-}
-
 /* Layout Container */
 .layout {
     display: flex;
@@ -54,28 +48,38 @@ body {
     overflow-y: auto;         /* Allow only content to scroll */
     padding: 40px;
     padding-top: 80px;
-    background-color: #fff;
-
 }
 
 .content h1, .content h2 {
     margin-bottom: 3px;
 }
 
-/* Task Done */
-.done {
-    text-decoration: line-through;
-    color: gray;
+/* Table */
+.table {
+    border-collapse: collapse;     /* Merge borders & remove gaps */
+    border-radius: 12px;
+    width: 100%;
+    overflow: hidden;
 }
 
-/* Task List */
-ul {
-    list-style: none;
-    padding-left: 0;
+.table th,
+.table td {
+    border: none;
+    padding: 16px 20px;
 }
 
-li {
-    margin-bottom: 10px;
+.table th {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+}
+
+.table td a {
+    text-decoration: none;
+}
+
+.table td a:hover {
+    text-decoration: underline;
 }
 
 /* Buttons */
@@ -131,53 +135,6 @@ input[type="text"] {
     100% { opacity: 0; display: none; }
 }
 
-.table {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-th {
-    background-color: #f9f2e7;
-    color: #3e2f1c;
-}
-
-td {
-    background-color: #fff;
-    color: #333;
-}
-
-.journal-container {
-    background-color: #fff8dc; 
-    border: 1px solid #ccc;
-    padding: 0;
-    margin: 20px auto;
-    max-width: 800px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-}
-
-.journal-header {
-    text-align: center;
-    font-size: 28px;
-    padding: 20px 0;
-}
-
-.journal-entry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid #ccc;
-}
-
-.journal-entry:last-child {
-    border-bottom: none;
-}
-
-.journal-entry span {
-    font-size: 18px;
-}
-
 .delete-link {
     color: red;
     cursor: pointer;
@@ -214,42 +171,10 @@ td {
     border-radius: 4px;
 }
 
-/* ===== List Custom Styling ===== */
-
-.table {
-    border: 2px solid #c7b299;     /* Outer border only */
-    border-collapse: collapse;     /* Merge borders & remove gaps */
-    border-radius: 12px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.table th,
-.table td {
-    border: none;
-    padding: 16px 20px;
-}
-
-.table th {
-    background-color: #f9f2e7;
-    font-weight: bold;
-    font-size: 16px;
-    text-align: left;
-}
-
-.table td a {
-    color: #000;
-    text-decoration: none;
-}
-
-.table td a:hover {
-    text-decoration: underline;
-}
-
 /* Delete Button */
 .btn-danger {
     background: none;
-    color: red;
+    color: rgb(252, 27, 27);
     font-weight: bold;
     border: none;
     padding: 0;
@@ -259,7 +184,7 @@ td {
 
 .btn-danger:hover {
     text-decoration: underline;
-    color: red; 
+    color: rgb(238, 0, 0); 
     background: none;
 }
 
@@ -280,133 +205,11 @@ td {
     background: none;
 }
 
-/* Add New Button Styling */
-.btn-primary {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 14px;
-    padding: 6px 12px;
-    border-radius: 6px;
-    background-color: #000000;
-    color: #fff;
-}
-
-.btn-primary:hover {
-    background-color: #616161;
-}
-
-/* ===== Vintage Journal Style ===== */
-
-.vintage-body {
-  max-height: 400px; 
-  overflow-y: auto;
-  padding-right: 10px; /* avoid scrollbar overlap */
-}
-
-.vintage-title {
-    font-family: 'Comic Sans MS', cursive;
-    font-size: 26px;
-    color: #3e2f1c;
-}
-
-.vintage-diary-box {
-    background: #fffbea;
-    border: 2px solid #e4d5b7;
-    border-radius: 12px;
-    padding: 24px;
-}
-
-.vintage-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 20px;
-    color: #4b3621;
-    margin-bottom: 10px;
-}
-
-.vintage-topic-input {
-    flex-grow: 1;
-    border: none;
-    border-bottom: 1px solid #8b6e4b;
-    background: transparent;
-    font-size: 18px;
-    font-family: 'Dancing Script', cursive;
-    color: #4b3621;
-    padding: 4px;
-}
-
-.vintage-topic-input:focus {
-    outline: none;
-    border-bottom: 2px solid #a1866f;
-}
-
-.vintage-line {
-    border: none;
-    border-bottom: 1px solid #c7b299;
-    margin-top: 10px;
-}
-
-.vintage-textarea {
-    width: 100%;
-    background: transparent;
-    border: none;
-    resize: none;
-    font-family: 'Dancing Script', cursive;
-    font-size: 18px;
-    color: #4b3621;
-    min-height: 300px;
-    padding-top: 10px;
-    white-space: pre-wrap;
-    overflow-wrap: break-word;
-}
-
-.vintage-textarea:focus {
-    outline: none;
-}
-
-.line {
-    border: none;
-    border-bottom: 1px solid #000000;
-    margin-top: 15px;    
-}
-
-/* Handwriting Font */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap');
-
-/* Icon Button with Label */
-.vintage-icon-btn {
-    width: 40px;
-    height: 40px;
-    background-color: #fffaf0;
-    border: 2px solid #3e2f1c;
-    color: #3e2f1c;
-    font-size: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    cursor: pointer;
-    text-decoration: none;
-    padding: 0;
-}
-
-.vintage-icon-btn:hover {
-    background-color: #fce8c8;
-}
-
-.vintage-label {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 16px;
-    color: #3e2f1c;
-}
-
 /*  Edit Button - Idea & Quote  */
 
 .edit-btn {
     background-color: transparent;
-    color: red;
+    color: rgb(0, 110, 255);
     font-weight: bold;
     border: none;
     padding: 0;
@@ -416,7 +219,7 @@ td {
 
 .edit-btn:hover {
     text-decoration: underline;
-    color: rgb(77, 77, 77);
+    color: rgb(0, 75, 214);
 }
 
 /* Footer */
@@ -429,19 +232,4 @@ footer a {
     text-decoration: none;
     font-weight: 600;
 }
-
-/* Contact Us - Message Field */
-.message-box {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #fdfdfc;
-    min-height: 10px;
-}
-
-.message-box {
-    height: 200px;        /* vertical height */
-    resize: none;         /* prevents user from resizing */
-}
-
 
