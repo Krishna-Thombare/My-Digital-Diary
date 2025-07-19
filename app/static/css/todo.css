@@ -19,18 +19,31 @@ li {
 }
 
 .table {
-    border: 2px solid #c7b299;     /* Outer border only */
+    border: 2px solid #a7a7a7;     /* Outer border only */
 }
 
 .table th,
 .table td {
-    background-color: #ffefd5;
+    background-color: #ffeaea;
 }
 
 .table th {
-    background-color: #faf6f1;
+    background-color: #ffd1d1;
 }
 
 .table td a {
     color: #000;
+}
+
+/* Add Button */
+button {
+    padding: 5px 10px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    background-color: #ffbebe;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff8181;
 }
