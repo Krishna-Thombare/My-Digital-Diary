@@ -7,28 +7,28 @@
 .contactus-title {
   font-family: 'Comic Sans MS', cursive;
   font-size: 26px;
-  color: #3e2f1c;
+  color: #000000;
 }
 
 .contactus-topic-input {
   flex-grow: 1;
   border: none;
-  border-bottom: 1px solid #8b6e4b;
+  border-bottom: 1px solid #000000;
   background: transparent;
   font-size: 18px;
   font-family: 'Dancing Script', cursive;
-  color: #4b3621;
+  color: #000000;
   padding: 4px;
 }
 
 .contactus-topic-input:focus {
   outline: none;
-  border-bottom: 2px solid #a1866f;
+  border-bottom: 2px solid #000000;
 }
 
 .contactus-diary-box {
-  background: #fffbea;
-  border: 2px solid #e4d5b7;
+  background: #e1fffd;
+  border: 2px solid #000000;
   border-radius: 12px;
   padding: 24px;
 }
@@ -40,7 +40,7 @@
   resize: none;
   font-family: 'Dancing Script', cursive;
   font-size: 18px;
-  color: #4b3621;
+  color: #000000;
   min-height: 300px;
   padding-top: 10px;
   white-space: pre-wrap;
@@ -54,9 +54,9 @@
 .contactus-icon-btn {
   width: 40px;
   height: 40px;
-  background-color: #fffaf0;
-  border: 2px solid #3e2f1c;
-  color: #3e2f1c;
+  background-color: #e1fffd;
+  border: 2px solid #000000;
+  color: #000000;
   font-size: 20px;
   display: inline-flex;
   align-items: center;
@@ -69,21 +69,21 @@
 }
 
 .contactus-icon-btn:hover {
-  background-color: #fce8c8;
+  background-color: #9efff9;
 }
 
 .contactus-label {
   font-family: 'Comic Sans MS', cursive, sans-serif;
   font-size: 16px;
-  color: #3e2f1c;
+  color: #000000;
 }
 
 /* Contact Us - Message Field */
 .message-box {
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     padding: 10px;
     border-radius: 5px;
-    background-color: #fdfdfc;
+    background-color: #f3fffe;
     min-height: 10px;
 }
 
@@ -93,15 +93,14 @@
 }
 
 /* Submit Button */
-.btn-primary {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 14px;
-    padding: 6px 12px;
-    border-radius: 6px;
-    background-color: #000000;
-    color: #fff;
+.contact-btn {
+    padding: 5px 10px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    background-color: #ecfffd;
+    cursor: pointer;
 }
 
-.btn-primary:hover {
-    background-color: #616161;
+.contact-btn:hover {
+    background-color: #38ffee;
 }
