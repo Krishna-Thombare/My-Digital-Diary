@@ -12,15 +12,37 @@
 
 .table th,
 .table td {
-    background-color: #ffefd5;
+    background-color: #fae8ff;
 }
 
 .table th {
-    background-color: #faf6f1;
+    background-color: #f3caff;
 }
 
 .table td a {
     color: #000;
+}
+
+/* Add New Button */
+.quotes-add-new-btn {
+  width: 40px;
+  height: 40px;
+  background-color: #fae8ff;
+  border: 2px solid #000000;
+  color: #000000;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+}
+
+.quotes-add-new-btn:hover {
+  background-color: #f3caff;
 }
 
 .quotes-body {
@@ -32,19 +54,19 @@
 .quotes-title {
   font-family: 'Comic Sans MS', cursive;
   font-size: 26px;
-  color: #3e2f1c;
+  color: #000000;
 }
 
 .quotes-diary-box {
-  background: #fffbea;
-  border: 2px solid #e4d5b7;
+  background: #fae8ff;
+  border: 2px solid #000000;
   border-radius: 12px;
   padding: 24px;
 }
 
 .quotes-line {
   border: none;
-  border-bottom: 1px solid #c7b299;
+  border-bottom: 1px solid #000000;
   margin-top: 10px;
 }
 
@@ -55,7 +77,7 @@
   resize: none;
   font-family: 'Dancing Script', cursive;
   font-size: 18px;
-  color: #4b3621;
+  color: #000000;
   min-height: 300px;
   padding-top: 10px;
   white-space: pre-wrap;
@@ -76,9 +98,9 @@
 .quotes-icon-btn {
   width: 40px;
   height: 40px;
-  background-color: #fffaf0;
-  border: 2px solid #3e2f1c;
-  color: #3e2f1c;
+  background-color: #fae8ff;
+  border: 2px solid #000000;
+  color: #000000;
   font-size: 20px;
   display: inline-flex;
   align-items: center;
@@ -91,11 +113,11 @@
 }
 
 .quotes-icon-btn:hover {
-  background-color: #fce8c8;
+  background-color: #f3caff;
 }
 
 .quotes-label {
   font-family: 'Comic Sans MS', cursive, sans-serif;
   font-size: 16px;
-  color: #3e2f1c;
+  color: #000000;
 }
