@@ -68,7 +68,7 @@ def delete_journal(journal_id):
     flash("Journal entry deleted.", "info")
     return redirect(url_for("journal.journal_list"))
 
-# Summarize Journal Entry
+# Summarize Journal Entry - (AI Summarization Feature)
 @journal_bp.route("/get-journal-content/<int:journal_id>")
 def get_journal_content(journal_id):
     entry = UserJournal.query.get_or_404(journal_id)
