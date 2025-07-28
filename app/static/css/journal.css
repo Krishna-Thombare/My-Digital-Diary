@@ -3,20 +3,21 @@
 
 /* Content Area */
 .content {
-    background-color: #ffffff;
+    background-color: #fff7e9;
+    background-image: url("../images/journal.png");
 }
 
 .table {
-    border: 2px solid #a7a7a7;   /* Outer border only */
+    border: none;   
 }
 
 .table th,
 .table td {
-    background-color: #fff7e9;
+    background-color: #fff0d3;
 }
 
 .table th {
-    background-color: #ffeed1;
+    background-color: #ffe2b1;
 }
 
 .table td a {
@@ -27,7 +28,7 @@
 .journal-add-new-btn {
   width: 40px;
   height: 40px;
-  background-color: #fff7e9;
+  background-color: #ffeed1;
   border: 2px solid #000000;
   color: #000000;
   font-size: 20px;
@@ -42,11 +43,11 @@
 }
 
 .journal-add-new-btn:hover {
-  background-color: #ffeed1;
+  background-color: #ffe1ad;
 }
 
 .journal-body {
-  max-height: 400px; 
+  max-height: 380px; 
   overflow-y: auto;
   padding-right: 10px;
 }
@@ -58,7 +59,8 @@
 }
 
 .journal-diary-box {
-  background: #fff7e9;
+  background-color: #fff0d3;
+  background-image: url("../images/journal.png");
   border: 2px solid #000000;
   border-radius: 12px;
   padding: 24px;
@@ -68,7 +70,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Comic Sans MS', cursive;
   font-size: 20px;
   color: #000000;
   margin-bottom: 10px;
@@ -80,14 +82,14 @@
   border-bottom: 1px solid #000000;
   background: transparent;
   font-size: 18px;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Comic Sans MS', cursive;
   color: #000000;
-  padding: 4px;
+  padding: 10px;
 }
 
 .journal-topic-input:focus {
   outline: none;
-  border-bottom: 2px solid #a1866f;
+  border-bottom: 1px solid #000000;
 }
 
 .journal-line {
@@ -101,7 +103,7 @@
   background: transparent;
   border: none;
   resize: none;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Comic Sans MS', cursive;
   font-size: 18px;
   color: #000000;
   min-height: 300px;
@@ -123,7 +125,7 @@
 .journal-icon-btn {
   width: 40px;
   height: 40px;
-  background-color: #fff7e9;
+  background-color: #ffeed1;
   border: 2px solid #000000;
   color: #000000;
   font-size: 20px;
@@ -138,7 +140,7 @@
 }
 
 .journal-icon-btn:hover {
-  background-color: #ffeed1;
+  background-color: #ffe1ad;
 }
 
 .journal-label {

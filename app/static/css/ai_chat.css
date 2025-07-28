@@ -39,7 +39,8 @@
 
 /* Header */
 #ai-chat-header {
-  background-color: #007BFF;
+  background-color: #492f23;
+  background-image: url("../images/leather.png");
   color: white;
   height: 47px;
   padding: 10px 12px;
@@ -58,14 +59,16 @@
   padding: 12px;
   overflow-y: auto;
   background-color: #f9f9f9;
+  background-image: url("../images/ai_chat.png");
 }
 
 #ai-chat-input-container {
   display: flex;
   align-items: center;
+  background-image: url("../images/leather.png");
   border-top: 1px solid #ddd;
   padding: 10px;
-  background-color: white;
+  background-color: #492f23;
 }
 
 /* Input field */
@@ -80,7 +83,7 @@
 
 /* Send button */
 #ai-send-button:hover {
-    background-color: #0061c9;
+    background-color: #000000;
 }
 
 #ai-chat-input-container button {
@@ -94,7 +97,8 @@
 
 /* User message bubble */
 #ai-chat-messages .user {
-  background-color: #DCF8C6;
+  color: white;
+  background-color: #4d4d4d;
   padding: 8px;
   margin: 4px 0;
   border-radius: 10px;
@@ -104,7 +108,8 @@
 
 /* Assistant message bubble */
 #ai-chat-messages .assistant {
-  background-color: #F1F0F0;
+  color: white;
+  background-color: #242424;
   padding: 8px;
   margin: 4px 0;
   border-radius: 10px;
@@ -140,7 +145,7 @@
 
 .suggestion {
   background-color: #e0e0e0;
-  color: #333;
+  color: #000000;
   padding: 6px 10px;
   border-radius: 8px;
   cursor: pointer;

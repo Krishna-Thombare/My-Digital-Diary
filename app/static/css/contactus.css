@@ -1,3 +1,8 @@
+.content {
+    background-color: #e1fffa;
+    background-image: url("../images/contactus.png");
+}
+
 .contactus-body {
   max-height: 400px; 
   overflow-y: auto;
@@ -16,7 +21,7 @@
   border-bottom: 1px solid #000000;
   background: transparent;
   font-size: 18px;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Comic Sans MS', cursive;
   color: #000000;
   padding: 4px;
 }
@@ -27,7 +32,8 @@
 }
 
 .contactus-diary-box {
-  background: #e1fffd;
+  background: #e1fffa;
+  background-image: url("../images/contactus.png");
   border: 2px solid #000000;
   border-radius: 12px;
   padding: 24px;
@@ -38,7 +44,7 @@
   background: transparent;
   border: none;
   resize: none;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Comic Sans MS', cursive;
   font-size: 18px;
   color: #000000;
   min-height: 300px;
@@ -54,7 +60,7 @@
 .contactus-icon-btn {
   width: 40px;
   height: 40px;
-  background-color: #e1fffd;
+  background-color: #dbdaff;
   border: 2px solid #000000;
   color: #000000;
   font-size: 20px;
@@ -69,7 +75,7 @@
 }
 
 .contactus-icon-btn:hover {
-  background-color: #9efff9;
+  background-color: rgb(195, 178, 255);
 }
 
 .contactus-label {
@@ -97,10 +103,10 @@
     padding: 5px 10px;
     border: 2px solid #000000;
     border-radius: 5px;
-    background-color: #ecfffd;
+    background-color: #c0bdff;
     cursor: pointer;
 }
 
 .contact-btn:hover {
-    background-color: #38ffee;
+    background-color: rgb(166, 141, 255);
 }

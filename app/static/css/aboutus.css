@@ -1,3 +1,9 @@
+.content {
+    background-color: #feffb3;
+    background-image: url("../images/aboutus.png");
+}
+
+
 .aboutus-body {
   max-height: 400px; 
   overflow-y: auto;
@@ -12,6 +18,7 @@
 
 .aboutus-diary-box {
   background: #feffb3;
+  background-image: url("../images/aboutus.png");
   border: 2px solid #000000;
   border-radius: 12px;
   padding: 24px;
@@ -22,7 +29,7 @@
   background: transparent;
   border: none;
   resize: none;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Comic Sans MS', cursive;
   font-size: 18px;
   color: #000000;
   min-height: 300px;
@@ -38,7 +45,7 @@
 .aboutus-icon-btn {
   width: 40px;
   height: 40px;
-  background-color: #feffb7;
+  background-color: #feffc9;
   border: 2px solid #000000;
   color: #000000;
   font-size: 20px;
@@ -53,7 +60,7 @@
 }
 
 .aboutus-icon-btn:hover {
-  background-color: #fdff8f;
+  background-color: #fdff95;
 }
 
 .aboutus-label {

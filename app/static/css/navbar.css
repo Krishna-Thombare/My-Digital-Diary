@@ -6,7 +6,7 @@
     height: 45px;
     line-height: 40px;
     z-index: 1000;
-    background-color: #9c7062;
+    background-color: #1f262e;
     padding: 0px 30px;
     display: flex;
     justify-content: space-between;
@@ -34,5 +34,6 @@
 }
 
 .nav-link:hover {
+    color: rgb(255, 255, 255);
     text-decoration: underline;
 }

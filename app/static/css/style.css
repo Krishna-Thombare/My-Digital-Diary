@@ -16,7 +16,8 @@
 /* Sidebar */
 .sidebar {
     width: 220px;
-    background-color: #000000;
+    background-color: #3e2723;
+    background-image: url("../images/leather.png");
     color: #ffffff;
     padding: 100px 20px 30px;
     flex-shrink: 0;
@@ -39,7 +40,7 @@
 }
 
 .sidebar a:hover {
-    background-color: #fcbe3a; 
+    background-color: #d1af90; 
 }
 
 /* Content Area */

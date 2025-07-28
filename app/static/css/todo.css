@@ -1,5 +1,6 @@
 .content {
-    background-color: #ffffff;
+    background-color: #fff0f0;
+    background-image: url("../images/todo.png");
 }
 
 /* Task Done */
@@ -19,16 +20,16 @@ li {
 }
 
 .table {
-    border: 2px solid #a7a7a7;     /* Outer border only */
+    border: none;     
 }
 
 .table th,
 .table td {
-    background-color: #ffeaea;
+    background-color: #ffdfdf;
 }
 
 .table th {
-    background-color: #ffd1d1;
+    background-color: #ffa9a9;
 }
 
 .table td a {
@@ -40,10 +41,10 @@ button {
     padding: 5px 10px;
     border: 2px solid #000000;
     border-radius: 5px;
-    background-color: #ffbebe;
+    background-color: #ffb1b1;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #ff8181;
+    background-color: #ff7f7f;
 }
