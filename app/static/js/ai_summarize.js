@@ -11,7 +11,7 @@ function summarizeJournal(journalId) {
         }
 
         const input = document.getElementById("ai-chat-input");
-        input.value = `Summarize this journal:- \n\n${data.journal_texts}`;
+        input.value = `Summarize my journal:- \n\n${data.journal_texts}`;
 
         sendMessage(); // auto-send
       } else {
@@ -37,7 +37,7 @@ function summarizeNotes(noteId) {
         }
 
         const input = document.getElementById("ai-chat-input");
-        input.value = `Summarize this notes:- \n\n${data.notes}`;
+        input.value = `Summarize my notes:- \n\n${data.notes}`;
 
         sendMessage(); // auto-send
       } else {
