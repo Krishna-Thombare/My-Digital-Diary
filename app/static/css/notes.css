@@ -3,20 +3,21 @@
 
 /* Content Area */
 .content {
-    background-color: #ffffff;
+    background-color: #eaf9ff;
+    background-image: url("../images/notes.png");
 }
 
 .table {
-    border: 2px solid #a7a7a7;   /* Outer border only */
+    border: none;  
 }
 
 .table th,
 .table td {
-    background-color: #eaf7ff;
+    background-color: #d8f1ff;
 }
 
 .table th {
-    background-color: #c8ebff;
+    background-color: rgb(177, 225, 255);
 }
 
 .table td a {
@@ -27,7 +28,7 @@
 .notes-add-new-btn {
   width: 40px;
   height: 40px;
-  background-color: #eaf7ff;
+  background-color: #d7f1ff;
   border: 2px solid #000000;
   color: #3e2f1c;
   font-size: 20px;
@@ -42,7 +43,7 @@
 }
 
 .notes-add-new-btn:hover {
-  background-color: #c8ebff;
+  background-color: rgb(177, 225, 255);
 }
 
 .notes-body {
@@ -58,7 +59,8 @@
 }
 
 .notes-diary-box {
-  background: #eaf7ff;
+  background-color: #daf1ff;
+  background-image: url("../images/notes.png");
   border: 2px solid #000000;
   border-radius: 12px;
   padding: 24px;
@@ -68,7 +70,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Comic Sans MS', cursive;
   font-size: 20px;
   color: #000000;
   margin-bottom: 10px;
@@ -80,7 +82,7 @@
   border-bottom: 1px solid #000000;
   background: transparent;
   font-size: 18px;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Comic Sans MS', cursive;
   color: #000000;
   padding: 4px;
 }
@@ -101,7 +103,7 @@
   background: transparent;
   border: none;
   resize: none;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Comic Sans MS', cursive;
   font-size: 18px;
   color: #000000;
   min-height: 300px;
@@ -123,7 +125,7 @@
 .notes-icon-btn {
   width: 40px;
   height: 40px;
-  background-color: #eaf7ff;
+  background-color: #d7f1ff;
   border: 2px solid #000000;
   color: #000000;
   font-size: 20px;
@@ -138,7 +140,7 @@
 }
 
 .notes-icon-btn:hover {
-  background-color: #c8ebff;
+  background-color: rgb(177, 225, 255);
 }
 
 .notes-label {

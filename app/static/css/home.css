@@ -1,161 +1,154 @@
-.home-page .navbar {
-    background-color: transparent;
-    color: white;
-}
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Great+Vibes&display=swap');
 
+/* ---- Base Styling ---- */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #f4f1ee;
-    min-height: 100vh;
-    padding-top: 100px;   /* for fixed navbar */
-    overflow: auto;   /* disables scrolling */
+  margin: 0;
+  padding: 0;
+  background-color: #3e2723;
+  background-image: url("../images/leather.png");
+  font-family: 'EB Garamond', serif;
+  color: #3e2723;
+  min-height: 100vh;
+  padding-top: 100px;
 }
 
+/* ---- Container Layout ---- */
 .container {
-    display: flex;
-    height: 77vh;
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
+  display: flex;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-shadow: none;
+  background-color: #fefaf1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
 }
 
+/* ---- Info Box ---- */
 .info-box {
-    width: 40%;
-    background-color: #e6d3b3;
-    padding: 30px;
-    border-radius: 12px 0 0 12px;
-    box-shadow: inset -2px 0 8px rgba(0,0,0,0.03);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;   /* Ensure text is left-aligned */
+  width: 45%;
+  background-color: #3e2723;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url("../images/leather.png");
+  background-size: cover;
+  color: #ffebc7;
+  border-right: none;
 }
 
 .info-box h1 {
-    font-size: 2rem;
-    color: #3e2f1c;
-    margin-bottom: 10px;
-    text-align: left;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #fae2c2;
 }
 
-.info-box p, .info-box li {
-    color: #4d3c2c;
-    font-size: 1.1rem;
-    margin: 6px 0;
-    text-align: left;
+.info-box p {
+  font-style: italic;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
 }
 
 .info-box ul {
-    padding-left: 20px;
-    text-align: left;
+  list-style: square;
+  padding-left: 20px;
 }
 
+.info-box li {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+/* ---- Auth Box ---- */
 .auth-boxes {
-    width: 60%;
-    background-color: #fae5ce;
-    border-radius: 0 12px 12px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-    padding: 20px;
+  width: 53%;
+  background-color: #3e2723;
+  background-image: url("../images/leather.png");
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
 }
 
+/* ---- Toggle ---- */
 .form-toggle {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .form-toggle button {
-    background-color: #e6d3b3;
-    color: #3e2f1c;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
+  background-color: #ffebc7;
+  color: #000000;
+  border: 1px solid #5c4033;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+.form-toggle button:hover,
 .form-toggle button.active {
-    background-color: #d4c0a3;
+  background-color: #3e2723;
+  color: #fff2dc;
 }
 
+/* ---- Form ---- */
 .form-container {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.form-container > div {
-  transition: opacity 0.3s ease;
-}
-
-.auth-button {
-    background-color: #e6d3b3;
-    color: #3e2f1c;
-    padding: 15px 40px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: background 0.3s ease;
-    border: 2px solid #d4b894;
-    cursor: pointer;
-}
-
-.auth-button:hover {
-    background-color: #d4b894;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .auth-form label {
-    color: #3e2f1c;
-    font-weight: 500;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.auth-form .btn-primary {
-    background-color: #e6d3b3;
-    color: #3e2f1c;
-    font-weight: 600;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.auth-form .btn-primary:hover {
-    background-color: #d4c0a3;
+  display: block;
+  margin-bottom: 5px;
+  color: #fff7e7;
+  font-size: 1.1rem;
 }
 
 .auth-form .form-control {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    box-sizing: border-box;
-    margin-bottom: 15px;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #a1887f;
+  border-radius: 6px;
+  background-color: #fffdf6;
+  font-family: 'EB Garamond', serif;
+  margin-bottom: 16px;
+  transition: border-color 0.3s ease;
 }
 
 .auth-form .form-control:focus {
-    outline: none;
-    border-color: #d4b894;
-    box-shadow: 0 0 5px rgba(212, 184, 148, 0.5);
+  border-color: #5c4033;
+  outline: none;
+  box-shadow: 0 0 5px #c9a87e;
+}
+
+/* ---- Buttons ---- */
+.auth-form .btn-primary,
+.auth-button {
+  background-color: #5c4033;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'EB Garamond', serif;
+  transition: background 0.3s ease;
+}
+
+.auth-button:hover,
+.auth-form .btn-primary:hover {
+  background-color: #3e2723;
 }
 
 .hidden {

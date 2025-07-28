@@ -3,20 +3,21 @@
 
 /* Content Area */
 .content {
-    background-color: #ffffff;
+    background-color: #e3ffee;
+    background-image: url("../images/ideas.png");
 }
 
 .table {
-    border: 2px solid #a7a7a7;     /* Outer border only */
+    border: none;      
 }
 
 .table th,
 .table td {
-    background-color: #e7fff0;
+    background-color: #c8fddc;
 }
 
 .table th {
-    background-color: #c9ffdb;
+    background-color: #96ffb9;
 }
 
 .table td a {
@@ -27,7 +28,7 @@
 .ideas-add-new-btn {
   width: 40px;
   height: 40px;
-  background-color: #e5ffef;
+  background-color: #beffd7;
   border: 2px solid #000000;
   color: #000000;
   font-size: 20px;
@@ -42,7 +43,7 @@
 }
 
 .ideas-add-new-btn:hover {
-  background-color: #c9ffdb;
+  background-color: #93ffb7;
 }
 
 .ideas-body {
@@ -58,7 +59,8 @@
 }
 
 .ideas-diary-box {
-  background: #e7fff0;
+  background-color: #c3fdd9;
+  background-image: url("../images/ideas.png");
   border: 2px solid #000000;
   border-radius: 12px;
   padding: 24px;
@@ -75,7 +77,7 @@
   background: transparent;
   border: none;
   resize: none;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Comic Sans MS', cursive;
   font-size: 18px;
   color: #000000;
   min-height: 300px;
@@ -98,7 +100,7 @@
 .ideas-icon-btn {
   width: 40px;
   height: 40px;
-  background-color: #e7fff0;
+  background-color: #beffd7;
   border: 2px solid #000000;
   color: #000000;
   font-size: 20px;
@@ -113,7 +115,7 @@
 }
 
 .ideas-icon-btn:hover {
-  background-color: #c9ffdb;
+  background-color: #93ffb7;
 }
 
 .ideas-label {
