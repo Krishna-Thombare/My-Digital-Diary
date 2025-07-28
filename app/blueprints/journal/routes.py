@@ -15,7 +15,7 @@ def journal_list():
     delete_form = DeleteForm()
     return render_template("journal/journal_list.html", journals=journals, delete_form=delete_form)
 
-# Adding New Journal Entry
+# Add New Journal Entry
 @journal_bp.route("/add", methods=["GET", "POST"])
 @login_required
 def add_journal():
@@ -36,7 +36,7 @@ def add_journal():
         return redirect(url_for("journal.journal_list"))
     return render_template("journal/journal_add.html", form=form, current_date=date_str)
 
-# Viewing Juornal Entry
+# View Juornal Entry
 @journal_bp.route("/view/<int:journal_id>")
 @login_required
 def view_journal(journal_id):
