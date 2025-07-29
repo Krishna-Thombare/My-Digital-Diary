@@ -59,11 +59,10 @@
 }
 
 .journal-diary-box {
-  background-color: #fff0d3;
-  background-image: url("../images/journal.png");
-  border: 2px solid #000000;
-  border-radius: 12px;
-  padding: 24px;
+  background: transparent;
+  border: none;
+  margin-top: 5px;
+  padding: 15px;
 }
 
 .journal-header {
@@ -73,29 +72,29 @@
   font-family: 'Comic Sans MS', cursive;
   font-size: 20px;
   color: #000000;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
+}
+
+.journal-header-section {
+  border-bottom: 2px solid #000000;
+  padding-bottom:3px;
+  margin-bottom: 5px;
 }
 
 .journal-topic-input {
   flex-grow: 1;
   border: none;
-  border-bottom: 1px solid #000000;
+  border-bottom: 0px solid #000000;
   background: transparent;
-  font-size: 18px;
+  font-size: 21px;
   font-family: 'Comic Sans MS', cursive;
   color: #000000;
-  padding: 10px;
+  padding: 5px;
 }
 
 .journal-topic-input:focus {
   outline: none;
   border-bottom: 1px solid #000000;
-}
-
-.journal-line {
-  border: none;
-  border-bottom: 1px solid #000000;
-  margin-top: 10px;
 }
 
 .journal-textarea {
@@ -107,19 +106,26 @@
   font-size: 18px;
   color: #000000;
   min-height: 300px;
-  padding-top: 10px;
+  padding-top: 10px 0;
   white-space: pre-wrap;
   overflow-wrap: break-word;
+  outline: none;
 }
 
 .journal-textarea:focus {
   outline: none;
 }
 
+.journal-line {
+  border: none;
+  border-bottom: 1px solid #000000;
+  margin-top: 10px;
+}
+
 .line {
   border: none;
   border-bottom: 1px solid #000000;
-  margin-top: 15px;
+  margin-top:1px;
 }
 
 .journal-icon-btn {

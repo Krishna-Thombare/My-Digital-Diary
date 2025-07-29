@@ -59,11 +59,10 @@
 }
 
 .notes-diary-box {
-  background-color: #daf1ff;
-  background-image: url("../images/notes.png");
-  border: 2px solid #000000;
-  border-radius: 12px;
-  padding: 24px;
+  background: transparent;
+  border: none;
+  margin-top: 5px;
+  padding: 15px;
 }
 
 .notes-header {
@@ -73,18 +72,24 @@
   font-family: 'Comic Sans MS', cursive;
   font-size: 20px;
   color: #000000;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
+}
+
+.notes-header-section {
+  border-bottom: 2px solid #000000;
+  padding-bottom:3px;
+  margin-bottom: 5px;
 }
 
 .notes-topic-input {
   flex-grow: 1;
   border: none;
-  border-bottom: 1px solid #000000;
+  border-bottom: 0px solid #000000;
   background: transparent;
-  font-size: 18px;
+  font-size: 21px;
   font-family: 'Comic Sans MS', cursive;
   color: #000000;
-  padding: 4px;
+  padding: 5px;
 }
 
 .notes-topic-input:focus {
@@ -99,7 +104,7 @@
 }
 
 .notes-textarea {
-  width: 100%;
+   width: 100%;
   background: transparent;
   border: none;
   resize: none;
@@ -107,9 +112,10 @@
   font-size: 18px;
   color: #000000;
   min-height: 300px;
-  padding-top: 10px;
+  padding-top: 10px 0;
   white-space: pre-wrap;
   overflow-wrap: break-word;
+  outline: none;
 }
 
 .notes-textarea:focus {

@@ -59,11 +59,16 @@
 }
 
 .quotes-diary-box {
-  background-color: #f7d9ff;
-  background-image: url("../images/quotes.png");
-  border: 2px solid #000000;
-  border-radius: 12px;
-  padding: 24px;
+  background: transparent;
+  border: none;
+  margin-top: 5px;
+  padding: 15px;
+}
+
+.quotes-header-section {
+  border-bottom: 2px solid #000000;
+  padding-bottom: 0px;
+  margin-bottom: 5px;
 }
 
 .quotes-line {
@@ -81,7 +86,7 @@
   font-size: 18px;
   color: #000000;
   min-height: 300px;
-  padding-top: 10px;
+  padding-top: 10px 0;
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
