@@ -1,17 +1,20 @@
 {% set feature_css = 'notes' %}
 {% extends "base.html" %}
 {% block content %}
-<div class="d-flex justify-content-between align-items-center mb-2">
-    <div class="d-flex align-items-center">
-        <a href="{{ url_for('notes.notes_list') }}" class="notes-icon-btn">←</a>
-        <span class="notes-label ms-2">Back</span>
-    </div>
 
-    <h2 class="text-center flex-grow-1 notes-title">Edit Note</h2>
+<div class="notes-header-section">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="d-flex align-items-center">
+            <a href="{{ url_for('notes.notes_list') }}" class="notes-icon-btn">←</a>
+            <span class="notes-label ms-2">Back</span>
+        </div>
 
-    <div class="d-flex align-items-center">
-        <span class="notes-label me-2">Save</span>
-        <button form="editNoteForm" type="submit" class="notes-icon-btn">✓</button>
+        <h2 class="text-center flex-grow-1 notes-title">Edit Note</h2>
+
+        <div class="d-flex align-items-center">
+            <span class="notes-label me-2">Save</span>
+            <button form="editNoteForm" type="submit" class="notes-icon-btn">✓</button>
+        </div>
     </div>
 </div>
 
