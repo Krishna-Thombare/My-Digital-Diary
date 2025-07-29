@@ -36,6 +36,7 @@ class UserNotes(db.Model):
     username = db.Column(db.String(15), nullable=False)
     note_name = db.Column(db.String(70), nullable=False)
     notes = db.Column(db.Text, nullable=False)
+    image_filename = db.Column(db.String(120), nullable=True)
     source_links = db.Column(db.Text)
     date = db.Column(db.Date, default=date.today)
 
