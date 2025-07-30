@@ -19,21 +19,44 @@
 </div>
 
 <div class="notes-diary-box">
-    <form id="noteForm" method="POST">
+    <form id="noteForm" method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
 
-        <div class="notes-header">
+        <div class="notes-header d-flex align-items-center gap-2">
             <span class="journal-date">{{ current_date }}</span> -
-            {{ form.note_name(class="notes-topic-input", placeholder="Note Title...") }}
-            <hr class="notes-line">
+
+            <div class="flex-grow-1 d-flex gap-2 align-items-center">
+                {{ form.note_name(class="notes-topic-input", placeholder="Note Title...") }}
+                
+                <label for="image" class="notes-image-btn">📷 Add Image</label>
+                <input type="file" id="image" name="image" accept="image/*" style="display: none;">
+            </div>
         </div>
-        <hr>
+        <hr class="notes-line">
 
         <div class="notes-body">
-            {{ form.notes(class="notes-textarea", rows="14", placeholder="Write your notes here...") }}
+            <!-- Hidden textarea for form submission -->
+            <textarea name="notes" id="notes-hidden" style="display:none;"></textarea>
+
+            <!-- Floating Image Preview -->
+            <img id="image-preview" src="" alt="Image Preview" class="floating-image" style="display: none;">
+
+            <!-- Editable div that mimics a textarea -->
+            <div id="notes-editor" class="notes-textarea" contenteditable="true"
+                placeholder="Write your notes here...">
+                {{ form.notes.data if form.notes.data else '' }}
+            </div>
+            
+            <div class="clearfix"></div>
             <hr class="line">
+
             {{ form.source_links(class="notes-textarea", rows="4", placeholder="Source links (optional)...") }}
         </div>
+
     </form>
+
 </div>
+
+<script src="{{ url_for('static', filename='js/notes_add.js') }}"></script>
+
 {% endblock %}

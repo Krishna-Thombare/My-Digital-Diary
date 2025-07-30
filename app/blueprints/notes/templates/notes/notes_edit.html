@@ -19,16 +19,53 @@
 </div>
 
 <div class="notes-diary-box">
-    <form id="editNoteForm" method="POST">
+    <form id="editNoteForm" method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
 
-        <div class="notes-header">
-            {{ form.note_name(class="notes-topic-input", placeholder="Title") }}
-            <hr class="notes-line">
+        <div class="notes-header d-flex align-items-center gap-2">
+            <div class="flex-grow-1 d-flex gap-2 align-items-center">
+                {{ form.note_name(class="notes-topic-input", placeholder="Title") }}
+
+                <!-- Image Upload Button -->
+                <label for="image" class="notes-image-btn">
+                    {% if entry.image_filename %}
+                        📷 Change Image
+                    {% else %}
+                        📷 Add Image
+                    {% endif %}
+                </label>
+                <input type="file" id="image" name="image" accept="image/*" style="display: none;">
+            </div>
         </div>
+        <hr class="notes-line">
 
         <div class="notes-body">
-            {{ form.notes(class="notes-textarea", rows=8, placeholder="Edit your note...") }}
+            <!-- Current saved image -->
+            {% if entry.image_filename %}
+                <div id="existing-image" class="mt-3">
+                    <strong>Current Image:</strong><br>
+                    <img id="existing-img-tag"
+                        src="{{ url_for('static', filename='uploads/' + entry.image_filename) }}"
+                        style="max-width: 250px; border: 1px solid #000; padding: 4px;"
+                        alt="Note Image"
+                        class="note-image">
+
+                    <!-- Remove image checkbox -->
+                    <div class="form-check mt-2">
+                        <input class="form-check-input" type="checkbox" id="remove-image" name="remove_image">
+                        <label class="form-check-label" for="remove-image"> Remove this image </label>
+                    </div>
+                </div>
+            {% endif %}
+
+            <!-- Hidden textarea for submission -->
+            <textarea name="notes" id="notes-hidden" style="display: none;"></textarea>
+
+            <!-- Floating Image Preview -->
+            <img id="image-preview" src="" alt="Image Preview" class="floating-image" style="display: none;">
+            <br>
+            <!-- Editable div pre-filled with existing note -->
+            <div id="notes-editor" class="notes-textarea" contenteditable="true" placeholder="Edit your note...">{{ form.notes.data|safe }}</div>
 
             <hr class="line">
 
@@ -36,4 +73,7 @@
         </div>
     </form>
 </div>
+
+<script src="{{ url_for('static', filename='js/notes_edit.js') }}"></script>
+
 {% endblock %}

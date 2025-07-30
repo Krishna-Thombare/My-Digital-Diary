@@ -25,15 +25,21 @@
         <hr class="notes-line">
     </div>
     <hr>
-
+    
     <div class="notes-body">
-        <div class="notes-textarea readonly" style="white-space: pre-wrap;">{{ entry.notes }}</div>
-
-        {% if entry.source_links %}
-        <hr class="line">
-        <strong>Sources:</strong>
-        <div style="white-space: pre-wrap;">{{ entry.source_links }}</div>
+        {% if entry.image_filename %}
+            <div class="note-image-wrapper">
+                <img src="{{ url_for('static', filename='uploads/' ~ entry.image_filename) }}" alt="Note Image" class="note-image">
+            </div>
         {% endif %}
+        <div class="notes-textarea readonly" style="white-space: pre-wrap;">{{ entry.notes|safe }}</div>
     </div>
+    
+        {% if entry.source_links %}
+            <hr class="line">
+            <strong>Sources:</strong>
+            <div style="white-space: pre-wrap;">{{ entry.source_links }}</div>
+        {% endif %}
+
 </div>
 {% endblock %}

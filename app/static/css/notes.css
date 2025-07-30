@@ -83,6 +83,7 @@
 
 .notes-topic-input {
   flex-grow: 1;
+  width: 70%;
   border: none;
   border-bottom: 0px solid #000000;
   background: transparent;
@@ -97,6 +98,65 @@
   border-bottom: 2px solid #000000;
 }
 
+.notes-image-btn {
+  background-color: #ffeed1;
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'Comic Sans MS', cursive;
+  color: #000;
+  text-decoration: none;
+}
+
+.notes-image-btn:hover {
+  background-color: #ffe1ad;
+}
+
+.note-image-wrapper {
+    float: right;
+    width: 250px;
+    margin-right: 35px;
+}
+
+.note-image {
+    width: 100%;
+    border: 1px solid #030303;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+#notes-editor:empty:before {
+  content: attr(placeholder);
+  color: #777777;
+  font-family: 'Comic Sans MS', cursive;
+  pointer-events: none;
+  display: block;
+}
+
+#notes-editor:focus::before {
+  content: "";
+}
+
+#notes-editor {
+  min-height: 300px;
+  overflow: none;
+  outline: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.floating-image {
+    float: right;
+    width: 250px;
+    margin-right: 35px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px;
+}
+
 .notes-line {
   border: none;
   border-bottom: 1px solid #000000;
@@ -104,16 +164,17 @@
 }
 
 .notes-textarea {
-   width: 100%;
+  width: 100%;
   background: transparent;
   border: none;
   resize: none;
   font-family: 'Comic Sans MS', cursive;
   font-size: 18px;
   color: #000000;
-  min-height: 300px;
+  min-height: 100px;
   padding-top: 10px 0;
   white-space: pre-wrap;
+  box-sizing: border-box;
   overflow-wrap: break-word;
   outline: none;
 }
@@ -125,7 +186,7 @@
 .line {
   border: none;
   border-bottom: 1px solid #000000;
-  margin-top: 15px;
+  margin-top: 60px;
 }
 
 .notes-icon-btn {
@@ -153,4 +214,8 @@
   font-family: 'Comic Sans MS', cursive, sans-serif;
   font-size: 16px;
   color: #000000;
+}
+
+.clearfix {
+  clear: both;
 }
