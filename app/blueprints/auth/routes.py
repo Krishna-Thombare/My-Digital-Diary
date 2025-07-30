@@ -11,9 +11,11 @@ def home_with_forms():
     register_form = RegisterForm()
     return render_template('home/home.html', login_form=login_form, register_form=register_form)
 
+# Register
 @auth_bp.route('/register', methods=['GET', 'POST'])
 def register():
     register_form = RegisterForm()
+    session.pop('_flashes', None)
     
     if register_form.validate_on_submit():
         if User.query.filter_by(username=register_form.username.data).first():
@@ -30,10 +32,13 @@ def register():
     
     return redirect(url_for('auth.home_with_forms'))
 
+# Login
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     login_form = LoginForm()
     register_form = RegisterForm()
+    session.pop('_flashes', None)
+    
     if login_form.validate_on_submit():
         user = User.query.filter_by(username=login_form.username.data).first()
         
@@ -47,9 +52,11 @@ def login():
     
     return render_template('home/home.html', login_form=login_form, register_form=register_form)
 
+# Logout
 @auth_bp.route('/logout')
 def logout():
     session.clear()
+    session.pop('_flashes', None)
     flash('Logged out successfully!', 'info')
     return redirect(url_for('home.home'))
 

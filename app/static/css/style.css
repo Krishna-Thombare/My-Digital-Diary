@@ -96,30 +96,36 @@ input[type="text"] {
 }
 
 /* Flash Messages */
-.flash-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
+#flash-messages-container {
+  position: fixed;
+  top: 75px;
+  left: 55%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  pointer-events: none;
 }
 
 .flash-message {
-    font-size: 0.9rem;
-    background-color: #d1ecf1;
-    color: #0c5460;
-    border: 1px solid #bee5eb;
-    padding: 10px 16px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    opacity: 1;
-    animation: fadeOut 4s forwards;
+  color: #333;
+  font-weight: bold;
+  background: none;
+  padding: 10px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 18px;
+  animation: fadeOut 3s forwards;
+  text-align: right;
 }
 
-/* Flash fade out animation */
+/* Color by category (success, error, etc.) */
+.flash-message.success { color: rgb(117, 181, 255); }
+.flash-message.error { color: rgb(255, 93, 93); }
+.flash-message.info { color: rgb(113, 255, 120); }
+
+/* Flash message fade out animation */
 @keyframes fadeOut {
-    0% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; display: none; }
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; display: none; }
 }
 
 .delete-link {
