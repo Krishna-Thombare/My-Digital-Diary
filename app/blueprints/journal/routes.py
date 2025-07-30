@@ -65,7 +65,7 @@ def delete_journal(journal_id):
     entry = UserJournal.query.get_or_404(journal_id)
     db.session.delete(entry)
     db.session.commit()
-    flash("Journal entry deleted.", "info")
+    flash("Journal entry deleted!", "info")
     return redirect(url_for("journal.journal_list"))
 
 # Summarize Journal Entry - (AI Summarization Feature)
