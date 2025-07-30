@@ -14,6 +14,9 @@ ENV/
 .env
 .env.*
 
+# User Uploads
+app/static/uploads/
+
 # Logs and debug files
 *.log
 *.bak
