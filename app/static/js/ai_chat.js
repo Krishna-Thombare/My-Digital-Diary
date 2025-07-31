@@ -62,9 +62,19 @@ function appendMessage(role, text, isTyping = false) {
   const container = document.getElementById("ai-chat-messages");
   const msgDiv = document.createElement("div");
   msgDiv.className = role;
-  msgDiv.innerHTML = marked.parse(text);   // Markdown to HTML
 
-  if (isTyping) msgDiv.classList.add("typing-placeholder");
+  if (isTyping) {
+    // Use Bootstrap spinner
+    msgDiv.innerHTML = `
+      <div class="spinner-grow text-primary" role="status" style="width: 1.3rem; height: 1.3rem;">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    `;
+    msgDiv.classList.add("typing-placeholder");
+  } else {
+    msgDiv.innerHTML = marked.parse(text); // Markdown to HTML
+  }
+
   container.appendChild(msgDiv);
   container.scrollTop = container.scrollHeight;
 }
