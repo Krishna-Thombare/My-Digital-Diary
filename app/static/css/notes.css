@@ -99,8 +99,8 @@
 }
 
 .notes-image-btn {
-  background-color: #ffeed1;
-  border: 2px solid #000;
+  background-color: #cfeeff;
+  border: 2px solid #000000;
   border-radius: 6px;
   padding: 6px 10px;
   font-size: 14px;
@@ -111,7 +111,7 @@
 }
 
 .notes-image-btn:hover {
-  background-color: #ffe1ad;
+  background-color: rgb(177, 225, 255);
 }
 
 .note-image-wrapper {
