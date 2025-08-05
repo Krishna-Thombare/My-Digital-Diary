@@ -81,6 +81,7 @@ body {
   gap: 10px;
 }
 
+/* Login & Register Button */
 .form-toggle button {
   background-color: #ffebc7;
   color: #000000;
