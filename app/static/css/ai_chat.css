@@ -83,7 +83,7 @@
 
 /* Send button */
 #ai-send-button:hover {
-    background-color: #000000;
+    background-color: #0064cf;
 }
 
 #ai-chat-input-container button {
@@ -144,8 +144,9 @@
 }
 
 .suggestion {
-  background-color: #e0e0e0;
+  background-color: #f3f3f3;
   color: #000000;
+  border-style: double;
   padding: 6px 10px;
   border-radius: 8px;
   cursor: pointer;
@@ -153,7 +154,7 @@
   white-space: nowrap;
   text-align: center;
   min-width: 140px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.2s ease;
 }
 
@@ -161,6 +162,7 @@
   background-color: #d0d0d0;
 }
 
+/* Clear Button */
 #ai-clear-button {
   margin-left: 8px;
   background-color: #dc3545;
