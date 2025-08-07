@@ -1,17 +1,21 @@
 .navbar {
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 0;
+    left: 0px;
     right: 0;
     height: 45px;
     line-height: 40px;
     z-index: 1000;
-    background-color: #1f262e;
+    background-color: #1b0e0e;
+    background-image: url("../images/leather.png");
     padding: 0px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    border-width: 1px;
+    border: solid;
+    border-color: #000000;
     font-weight: 600;
 }
 
@@ -22,18 +26,20 @@
 }
 
 .navbar-right {
+    font-size: 1.1rem;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
 .nav-link {
-    color: #ffffff;
+    font-family: 'EB Garamond', serif;
+    color: #ffe5cc;
     text-decoration: none;
     font-weight: 500;
 }
 
 .nav-link:hover {
-    color: rgb(255, 255, 255);
+    color: #ffd5ad;
     text-decoration: underline;
 }
