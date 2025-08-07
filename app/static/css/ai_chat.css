@@ -1,17 +1,18 @@
 /* Floating AI chat button */
 #ai-chat-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 55px;
-  height: 55px;
-  background-color: #007BFF;
+  bottom: 21px;
+  right: 21px;
+  width: 57px;
+  height: 57px;
+  background-color: #000000;
   color: white;
-  font-size: 24px;
+  font-size: 29px;
   border-radius: 50%;
-  border: none;
+  border: solid;
+  border-color: #007BFF;
   text-align: center;
-  line-height: 55px;
+  line-height: 51px;
   cursor: pointer;
   z-index: 999;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);

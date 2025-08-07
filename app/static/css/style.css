@@ -15,11 +15,11 @@
 
 /* Sidebar */
 .sidebar {
-    width: 220px;
-    background-color: #3e2723;
+    width: 210px;
+    background-color: #140806;
     background-image: url("../images/leather.png");
     color: #ffffff;
-    padding: 100px 20px 30px;
+    padding: 13px 20px 30px;
     flex-shrink: 0;
     overflow: hidden;         /* Prevent sidebar scroll */
 }
@@ -33,14 +33,24 @@
     display: block;
     color: #ffffff;
     text-decoration: none;
+    font-size: 17px;
     margin: 10px 0;
     padding: 8px 12px;
     border-radius: 6px;
     transition: background 0.3s;
 }
 
+.sidebar hr {
+                  
+  height: 1px;                 
+  color: #dfdfdf;   
+  width: 100%;                  
+  margin: 20px auto; 
+  opacity: 70%;
+}
+
 .sidebar a:hover {
-    background-color: #d1af90; 
+    background-color: #4e3834; 
 }
 
 /* Content Area */
