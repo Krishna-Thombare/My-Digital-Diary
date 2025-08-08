@@ -36,7 +36,7 @@ def add_journal():
         return redirect(url_for("journal.journal_list"))
     return render_template("journal/journal_add.html", form=form, current_date=date_str)
 
-# View Juornal Entry
+# View Journal Entry
 @journal_bp.route("/view/<int:journal_id>")
 @login_required
 def view_journal(journal_id):
