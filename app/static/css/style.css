@@ -128,7 +128,7 @@ input[type="text"] {
 
 /* Color by category (success, error, etc.) */
 .flash-message.success { color: rgb(117, 181, 255); }
-.flash-message.error { color: rgb(255, 93, 93); }
+.flash-message.error { color: rgb(255, 80, 80);}
 .flash-message.info { color: rgb(113, 255, 120); }
 
 /* Flash message fade out animation */
@@ -184,7 +184,6 @@ input[type="text"] {
 }
 
 /*  Edit Button - Idea & Quote  */
-
 .edit-btn {
     background-color: transparent;
     color: rgb(0, 110, 255);
