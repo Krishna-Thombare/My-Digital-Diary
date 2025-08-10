@@ -9,6 +9,8 @@ from app.models import UserNotes
 from app.models import UserQuotes
 from app.models import UserIdeas
 from app.models import UserTodoList
+from app.models import ImageFolder
+from app.models import UserImages
 
 app = create_app()
 

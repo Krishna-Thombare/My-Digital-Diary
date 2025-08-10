@@ -1,0 +1,35 @@
+{% set feature_css = 'gallery' %}
+{% extends "base.html" %}
+{% block content %}
+
+<div class="folder-header">
+  <h2>My Gallery</h2>
+
+  <form method="POST" action="{{ url_for('gallery.gallery_list') }}" style="display:flex; gap:8px; align-items:center;">
+    {{ form.hidden_tag() }}
+    {{ form.name(class="form-control", placeholder="New folder name") }}
+    {{ form.submit(class="create-folder-btn") }}
+  </form>
+</div>
+
+{% if folders %}
+  <div class="gallery-folder-list">
+    {% for f in folders %}
+      <div class="gallery-folder">
+        <a href="{{ url_for('gallery.gallery_view', folder_id=f.id) }}">
+          <div class="folder-icon"><i class="bi bi-folder2"></i></div>
+          <div class="folder-name">{{ f.name }}</div>
+        </a>
+
+        <form method="POST" action="{{ url_for('gallery.delete_folder', folder_id=f.id) }}">
+          {{ delete_form.hidden_tag() }}
+          <button type="submit" onclick="return confirm('Delete folder?')" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+        </form>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="no-data-msg">No folders yet. Create one above to start.</p>
+{% endif %}
+
+{% endblock %}

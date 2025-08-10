@@ -1,0 +1,58 @@
+{% set feature_css = 'gallery' %}
+{% extends "base.html" %}
+{% block content %}
+
+<div class="image-header">
+  <!-- Left: Back button -->
+  <div class="header-left">
+    <a href="{{ url_for('gallery.gallery_list') }}" class="back-btn">←</a>
+    <span class="gallery-label ms-2">Back</span>
+  </div>
+
+  <!-- Center: Folder name -->
+  <h1 class="folder-title">{{ folder.name }}</h1>
+
+  <!-- Right: Upload form -->
+  <div class="header-right">
+    <form method="POST" action="{{ url_for('gallery.gallery_view', folder_id=folder.id) }}" enctype="multipart/form-data" id="uploadForm">
+        {{ form.hidden_tag() }}
+        <input type="file" id="imageInput" name="image" accept=".png,.jpg,.jpeg" multiple style="display: none;">
+        <span class="gallery-label me-1">Upload</span>
+        <button type="button" class="upload-img-btn" onclick="document.getElementById('imageInput').click();">
+          ➕
+      </button>
+    </form>
+  </div>
+</div>
+<hr class="gallery-line">
+
+{% if images %}
+  <div class="gallery-image-list">
+    {% for img in images %}
+      <div class="gallery-image">
+        {% set img_url = url_for('static', filename='uploads/gallery/' ~ img.filename) %}
+          <img src="{{ img_url }}" 
+          alt=""
+          onclick="openPreview('{{ img_url }}')">
+
+        <form method="POST" action="{{ url_for('gallery.delete_image', image_id=img.id) }}">
+          {{ delete_form.hidden_tag() }}
+          <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete image?')"><i class="bi bi-trash"></i></button>
+        </form>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="no-data-msg">This folder is empty. Upload images from the right.</p>
+{% endif %}
+
+<!-- simple preview modal -->
+<div id="imagePreviewModal" style="display:none;position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;">
+  <div style="max-width:90%;max-height:90%;padding:10px;">
+    <img id="viewerImage" src="" style="width:100%;height:auto;border-radius:6px;">
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+
+{% endblock %}
