@@ -70,3 +70,23 @@ class UserTodoList(db.Model):
     tasks = db.Column(db.String(200), nullable=False)
     status = db.Column(db.Boolean, default=False)
     date = db.Column(db.Date, default=date.today)
+
+# -------------------- IMAGE FOLDER TABLE --------------------
+class ImageFolder(db.Model):
+    __tablename__ = 'image_folder'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    created_at = db.Column(db.Date, default=date.today)
+    
+    __table_args__ = (db.UniqueConstraint('name', 'user_id', name='unique_folder_per_user'),)
+
+# -------------------- IMAGES TABLE -------------------- 
+class UserImages(db.Model):
+    __tablename__ = 'user_images'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    filename = db.Column(db.String(200), nullable=False)
+    folder_id = db.Column(db.Integer, db.ForeignKey('image_folder.id'), nullable=False)
+    uploaded_at = db.Column(db.Date, default=date.today)
