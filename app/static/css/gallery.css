@@ -93,7 +93,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;   /* Prevent name overflow */
+    overflow: hidden;   /* Prevent overflow */
+}
+
+.gallery-folder:hover {
+    background-color: rgb(255, 83, 141);
 }
 
 .gallery-folder a {
@@ -137,6 +141,7 @@
 .image-header {
     display: flex;
     align-items: center;
+    font-family: 'Comic Sans MS', cursive;
     justify-content: center;
     position: relative;
     padding: 10px;
@@ -186,7 +191,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 6px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive;
   cursor: pointer;
   text-decoration: none;
   padding: 0;
@@ -208,7 +213,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 6px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive;
   cursor: pointer;
   text-decoration: none;
   padding: 0;

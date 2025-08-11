@@ -19,7 +19,6 @@ body {
   max-width: 1100px;
   margin: 0 auto;
   box-shadow: none;
-  background-color: #fefaf1;
   border-radius: 12px;
   overflow: hidden;
   border: none;
@@ -27,37 +26,36 @@ body {
 
 /* ---- Info Box ---- */
 .info-box {
-  width: 45%;
-  background-color: #3e2723;
-  padding: 40px 30px;
+  width: 67%;
+  padding: 35px 47px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url("../images/leather.png");
-  background-size: cover;
-  color: #ffebc7;
+  background-size: none;
+  color: #fff2d6;
   border-right: none;
 }
 
 .info-box h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 3.1rem;
+  margin-bottom: 7px;
   color: #fae2c2;
 }
 
 .info-box p {
+  font-family: 'Comic Sans MS', cursive;
   font-style: italic;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
+  margin-bottom: 7px;
+  font-size: 1.3rem;
 }
 
-.info-box ul {
-  list-style: square;
-  padding-left: 20px;
+.info-box p {
+  list-style: none;
+  padding-left: 0px;
 }
 
-.info-box li {
+.info-box p {
   margin-bottom: 8px;
   font-size: 1.1rem;
 }
@@ -67,11 +65,11 @@ body {
   width: 53%;
   background-color: #3e2723;
   background-image: url("../images/leather.png");
-  padding: 40px 30px;
+  padding: 40px 9px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 /* ---- Toggle ---- */
@@ -88,7 +86,7 @@ body {
   border: 1px solid #5c4033;
   padding: 10px 20px;
   border-radius: 6px;
-  font-family: 'EB Garamond', serif;
+  font-family: 'Comic Sans MS', cursive;
   font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.3s ease;
