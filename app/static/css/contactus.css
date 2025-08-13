@@ -31,13 +31,13 @@
   border-bottom: 2px solid #000000;
 }
 
-.contactus-diary-box {
+/* .contactus-diary-box {
   background: #e1fffa;
   background-image: url("../images/contactus.png");
   border: 2px solid #000000;
   border-radius: 12px;
   padding: 24px;
-}
+} */
 
 .contactus-textarea {
   width: 100%;
