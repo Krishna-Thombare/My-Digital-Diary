@@ -38,25 +38,20 @@
       {% if not hide_sidebar %}
         <!-- Sidebar -->
         <div class="sidebar">
-          <!-- <h4><i class="bi bi-journal"></i> My Digital Diary </h4> -->
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <a href="{{ url_for('journal.journal_list') }}"><i class="bi bi-journal-text"></i> Journal </a>
-            <a href="{{ url_for('notes.notes_list') }}"><i class="bi bi-card-text"></i> Notes </a>
-            <a href="{{ url_for('ideas.ideas_list') }}"><i class="bi bi-lightbulb"></i> Ideas </a>
-            <a href="{{ url_for('quotes.quotes_list') }}"><i class="bi bi-chat-left-quote"></i> Quotes </a>
-            <a href="{{ url_for('todo.todo') }}"><i class="bi bi-list-check"></i> To-Do </a>
-            <a href="{{ url_for('gallery.gallery_list') }}"><i class="bi bi-images"></i> Gallery </a>           
-            <br>
-            <br>
-            <br>
-            <br>       
-            <hr>           
-            <a href="{{ url_for('auth.logout') }}"><i class="bi bi-box-arrow-right"></i> Logout </a>
-        </div>
+          <div class="menu-top">
+              <a href="{{ url_for('journal.journal_list') }}"><i class="bi bi-journal-text"></i> Journal </a>
+              <a href="{{ url_for('notes.notes_list') }}"><i class="bi bi-card-text"></i> Notes </a>
+              <a href="{{ url_for('ideas.ideas_list') }}"><i class="bi bi-lightbulb"></i> Ideas </a>
+              <a href="{{ url_for('quotes.quotes_list') }}"><i class="bi bi-chat-left-quote"></i> Quotes </a>
+              <a href="{{ url_for('todo.todo') }}"><i class="bi bi-list-check"></i> To-Do </a>
+              <a href="{{ url_for('gallery.gallery_list') }}"><i class="bi bi-images"></i> Gallery </a>
+          </div>
+
+          <div class="menu-bottom">
+              <hr>
+              <a href="{{ url_for('auth.logout') }}"><i class="bi bi-box-arrow-right"></i> Logout </a>
+          </div>
+      </div>
       {% endif %}
 
       {% include 'navbar.html' %}

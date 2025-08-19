@@ -178,3 +178,49 @@
 #ai-clear-button:hover {
   background-color: #c82333;
 }
+
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+  #ai-chat-box {
+    width: 90%;            
+    height: 60%;           
+    right: 5%;             
+    bottom: 80px;          
+  }
+
+  #ai-chat-button {
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  #ai-chat-box {
+    width: 95%;
+    height: 65%;
+    right: 2.5%;           
+    bottom: 75px;
+    border-radius: 8px;    
+  }
+
+  #ai-chat-input {
+    font-size: 14px;       
+  }
+
+  #ai-chat-input-container button {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #ai-chat-box {
+    width: 80%;
+    height: 65%;
+    right: 10%;
+    bottom: 85px;
+  }
+}

@@ -94,8 +94,8 @@
 }
 
 .message-box {
-    height: 150px;        /* vertical height */
-    resize: none;         /* prevents user from resizing */
+    height: 150px;        
+    resize: none;         
 }
 
 /* Submit Button */
@@ -109,4 +109,53 @@
 
 .contact-btn:hover {
     background-color: rgb(166, 141, 255);
+}
+
+
+/* For Tablet */
+@media (max-width: 992px) {
+  .contactus-title {
+    font-size: 22px;
+    text-align: center;
+  }
+  .contactus-label {
+    font-size: 14px;
+  }
+  .contactus-topic-input,
+  .contactus-textarea {
+    font-size: 16px;
+    width: 100%; 
+  }
+}
+
+/* For mobile */
+@media (max-width: 768px) {
+  .d-flex.justify-content-between.align-items-center {
+    flex-direction: row;
+    padding-top: 50px;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .contactus-title {
+    text-align: center;
+    margin-right: 50px;
+    width: 100%;
+  }
+  .contactus-icon-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactus-title {
+    font-size: 18px;
+  }
+  .contactus-body {
+    padding: 5px;
+  }
+  .contactus-label {
+    font-size: 12px;
+  }
 }

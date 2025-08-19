@@ -3,6 +3,14 @@
     background-image: url("../images/aboutus.png");
 }
 
+.aboutus-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  position: relative;
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
 
 .aboutus-body {
   max-height: 400px; 
@@ -14,6 +22,8 @@
   font-family: 'Comic Sans MS', cursive;
   font-size: 26px;
   color: #000000;
+  margin: 0;
+  text-align: center;
 }
 
  /*.aboutus-diary-box {
@@ -69,3 +79,85 @@
   font-size: 16px;
   color: #000000;
 }
+
+
+/* For tablets */
+@media (max-width: 992px) {
+  .aboutus-title {
+    font-size: 22px;
+  }
+
+  .aboutus-textarea {
+    font-size: 16px;
+    min-height: auto;
+  }
+
+  .aboutus-body {
+    max-height: none;
+    padding-right: 0;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 600px) {
+  
+  .aboutus-title {
+    font-size: 20px;
+    text-align: center;
+    flex-grow: unset;
+  }
+
+  .aboutus-textarea {
+    font-size: 15px;
+    padding: 5px;
+    text-align: left;
+  }
+
+  .aboutus-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 50px;
+  }
+
+  .aboutus-icon-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .aboutus-label {
+    font-size: 14px;
+  }
+}
+
+/* Back button */
+.aboutus-header .aboutus-back {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .aboutus-textarea {
+    font-size: 16px;
+    padding: 8px 12px;
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .aboutus-textarea {
+    font-size: 15px;
+    text-align: left;   
+    line-height: 1.5;
+    padding: 6px 10px;
+  }
+}
+
