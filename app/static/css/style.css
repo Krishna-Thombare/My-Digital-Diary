@@ -9,8 +9,8 @@
 /* Layout Container */
 .layout {
     display: flex;
-    height: 100vh;            /* Full viewport height */
-    overflow: hidden;         /* Prevent entire page from scrolling */
+    height: 100vh;            
+    overflow: hidden;         
 }
 
 /* Sidebar */
@@ -20,8 +20,13 @@
     background-image: url("../images/leather.png");
     color: #ffffff;
     padding: 13px 20px 30px;
+    padding-top: 90px;
+    margin-top: 30px;
     flex-shrink: 0;
-    overflow: hidden;         /* Prevent sidebar scroll */
+    display: flex;                 
+    flex-direction: column;        
+    justify-content: space-between;
+    height: 100vh;                 
 }
 
 .sidebar h2 {
@@ -51,6 +56,28 @@
 
 .sidebar a:hover {
     background-color: #644743; 
+}
+
+.menu-top a,
+.menu-bottom a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 10px 0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.menu-top a:hover,
+.menu-bottom a:hover {
+    background-color: #644743;
+}
+
+.menu-bottom hr {
+    margin: 15px 0;
+    opacity: 0.7;
 }
 
 /* Content Area */
@@ -216,7 +243,7 @@ input[type="text"] {
 }
 
 /* Footer */
-footer {
+/* footer {
     font-size: 0.9rem;
     color: #555;
     background-color: #f8f9fa;
@@ -224,4 +251,72 @@ footer {
 footer a {
     text-decoration: none;
     font-weight: 600;
+} */
+
+
+
+/* Responsive Adjustments */
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+    height: auto; 
+    overflow: visible;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    padding-top: 30px;
+    text-align: center;
+    overflow-x: auto; 
+  }
+
+  .sidebar a {
+    display: inline-block;
+    margin: 5px;
+    font-size: 15px;
+    padding: 6px 10px;
+  }
+
+  /* Content */
+  .content {
+    padding: 15px;
+    padding-top: 17px;
+  }
+
+  /* Flash messages center on small devices */
+  #flash-messages-container {
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Reduce font sizes for very small screens */
+  .sidebar a {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+
+  .navbar-left {
+    font-size: 1.2rem;
+  }
+
+  .navbar-right {
+    font-size: 0.9rem;
+    gap: 10px;
+  }
+
+  /* AI chat box smaller on mobile */
+  #ai-chat-box {
+    width: 95%;
+    height: 70%;
+    right: 2.5%;
+    bottom: 80px;
+  }
 }
