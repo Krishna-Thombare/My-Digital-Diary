@@ -1,22 +1,22 @@
 import os
 from dotenv import load_dotenv
+from urllib.parse import quote_plus
 
-load_dotenv()   # Ensures that environment is loaded before accessing any variables to resolve SQLALCHEMY_DATABASE_URI error
+load_dotenv()
 
 class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-secret')
     
-    # Database Info
     DB_USER = os.getenv('DB_USER')
-    DB_PASSWORD = os.getenv('DB_PASSWORD')
+    DB_PASSWORD = quote_plus(os.getenv('DB_PASSWORD'))
     DB_HOST = os.getenv('DB_HOST')
     DB_PORT = os.getenv('DB_PORT')
     DB_NAME = os.getenv('DB_NAME')
     
-    # Database URI
-    SQLALCHEMY_DATABASE_URI = (f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
+    SQLALCHEMY_DATABASE_URI = (
+        f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+    )
     
-    # Pass SSL CA cert to pymysql
     SQLALCHEMY_ENGINE_OPTIONS = {
         "connect_args": {
             "ssl": {
