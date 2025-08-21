@@ -20,7 +20,7 @@
 }
 
 .navbar-left {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: #ffffff;
 }
@@ -45,35 +45,5 @@
 }
 
 
-/* Mobile Screens */
-@media (max-width: 768px) {
-  .navbar-left {
-    font-size: 1.5rem;  
-  }
 
-  .navbar-right {
-    font-size: 0.9rem;  
-    gap: 12px;          
-  }
-
-  .nav-link {
-    font-size: 0.9rem;  
-  }
-}
-
-/* More Small Phones */
-@media (max-width: 480px) {
-  .navbar-left {
-    font-size: 1rem;
-  }
-
-  .navbar-right {
-    font-size: 0.8rem;
-    gap: 8px;
-  }
-
-  .nav-link {
-    font-size: 0.8rem;
-  }
-}
 
