@@ -34,3 +34,6 @@ Thumbs.db
 # Inside migrations
 migrations/__pycache__/
 migrations/*.pyc
+
+# CA Certificate
+ca.pem
