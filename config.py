@@ -14,5 +14,5 @@ class Config:
     DB_NAME = os.getenv('DB_NAME')
     
     # Database URI
-    SQLALCHEMY_DATABASE_URI = f"mysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?ssl_mode=REQUIRED"
+    SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?ssl_mode=REQUIRED"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
