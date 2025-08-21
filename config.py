@@ -14,5 +14,15 @@ class Config:
     DB_NAME = os.getenv('DB_NAME')
     
     # Database URI
-    SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?ssl_mode=REQUIRED"
+    SQLALCHEMY_DATABASE_URI = (f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
+    
+    # Pass SSL CA cert to pymysql
+    SQLALCHEMY_ENGINE_OPTIONS = {
+        "connect_args": {
+            "ssl": {
+                "ca": os.path.join(os.getcwd(), "certs/ca.pem")
+            }
+        }
+    }
+    
     SQLALCHEMY_TRACK_MODIFICATIONS = False
