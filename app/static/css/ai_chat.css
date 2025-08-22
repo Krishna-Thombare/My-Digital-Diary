@@ -66,10 +66,10 @@
 #ai-chat-input-container {
   display: flex;
   align-items: center;
+  background-color: #1b0e0e;
   background-image: url("../images/leather.png");
   border-top: 1px solid #ddd;
   padding: 10px;
-  background-color: #492f23;
 }
 
 /* Input field */
