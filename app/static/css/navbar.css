@@ -20,13 +20,13 @@
 }
 
 .navbar-left {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #ffffff;
 }
 
 .navbar-right {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -64,7 +64,7 @@
 /* Extra small phones */
 @media (max-width: 480px) {
   .navbar-left {
-    font-size: 1rem;
+    font-size: 1.4rem;
   }
 
   .navbar-right {
