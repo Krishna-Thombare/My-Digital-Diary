@@ -247,11 +247,11 @@
 }
 
 
-/* Mobile view: 2 folders per row, centered if only one */
+/* Mobile view: 3 folders per row, centered if only one */
 @media (max-width: 768px) {
   .gallery-folder-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     justify-items: center;
   }
