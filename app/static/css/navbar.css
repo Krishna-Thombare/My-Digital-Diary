@@ -45,5 +45,36 @@
 }
 
 
+/* Mobile screens */
+@media (max-width: 768px) {
+  .navbar-left {
+    font-size: 1.2rem;  
+  }
+
+  .navbar-right {
+    font-size: 0.9rem;  
+    gap: 12px;          
+  }
+
+  .nav-link {
+    font-size: 0.9rem;  
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .navbar-left {
+    font-size: 1rem;
+  }
+
+  .navbar-right {
+    font-size: 0.8rem;
+    gap: 8px;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+  }
+}
 
 
