@@ -48,11 +48,11 @@
 /* Mobile screens */
 @media (max-width: 768px) {
   .navbar-left {
-    font-size: 1.5rem;  
+    font-size: 1.7rem;  
   }
 
   .navbar-right {
-    font-size: 0.9rem;  
+    font-size: 0.8rem;  
     gap: 12px;          
   }
 
@@ -64,11 +64,11 @@
 /* Extra small phones */
 @media (max-width: 480px) {
   .navbar-left {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 
   .navbar-right {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     gap: 8px;
   }
 
