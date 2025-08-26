@@ -15,7 +15,7 @@ mail = Mail()
 def create_app():
     load_dotenv()  # Loads from .env
 
-    app = Flask(__name__, template_folder='app/templates', static_folder='app/static')
+    app = Flask(__name__, template_folder='templates', static_folder='static')
     app.config.from_object('config.Config')
     
     # Mail Configuration - (To receive users contact us messages)
