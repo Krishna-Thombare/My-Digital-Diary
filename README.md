@@ -29,7 +29,7 @@ https://my-digital-diary.onrender.com/
 ### 🏠 Login Page
 ![Login](screenshots/Login.png)
 
-### 📝 Journal Module
+### 📝 Journal Feature
 ![Journal](screenshots/Journal.png)
 
 ### 🤖 AI Assistance Feature
