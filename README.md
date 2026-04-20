@@ -5,10 +5,9 @@ My Digital Diary is a full-stack web application that enables users to securely 
 1. Task Specific Modules:- Journal, Notes, Ideas, Quotes, To-Do List, Gallery, AI Assistance
 2. AI-powered chat assistance for user interaction
 3. One click summarization using external AI API
-4. Responsive and clean UI
+4. User Registration and Authentication
 5. Full CRUD operations with database integration
-6. REST API-based backend architecture
-
+   
 ## 🛠️ **Tech Stack:**
 1. Backend:- Python, Flask
 2. Database:- MySQL (Aiven Cloud)
@@ -17,10 +16,11 @@ My Digital Diary is a full-stack web application that enables users to securely 
 5. Deployment:- Render
 
 ## 🧠 **Architecture:**
-1. Designed using modular Flask structure
-2. RESTful API endpoints for data handling
-3. MySQL database for persistent storage
-4. External API integration for AI feature
+1. Used Flask Blueprints for modular structure
+2. REST API-based backend architecture
+3. Template rendering using Jinja2
+4. Uses SQLAlchemy ORM for database management.
+5. External API integration for AI feature
 
 ## 🚀 **Live Demo:**
 https://my-digital-diary.onrender.com/
