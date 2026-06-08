@@ -24,7 +24,7 @@ def ai_chat():
             {"role": "user", "content": user_message}
         ]
         
-        response = client.chat.completions(messages=messages)
+        response = client.chat.completions(model="sarvam-105b", messages=messages)
         reply = response.choices[0].message.content
         
         return jsonify({'response': reply})
