@@ -3,161 +3,155 @@
     background-image: url("../images/aboutus.png");
 }
 
+/* Header */
 .aboutus-header {
-  display: flex;
-  align-items: center;
-  justify-content: center; 
-  position: relative;
-  margin-bottom: 10px;
-  margin-top: 0px;
-}
-
-.aboutus-body {
-  max-height: 400px; 
-  overflow-y: none;
-  padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 10px;
 }
 
 .aboutus-title {
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 26px;
-  color: #000000;
-  margin: 0;
-  text-align: center;
-}
-
- /*.aboutus-diary-box {
-  background: #feffb3;
-  background-image: url("../images/aboutus.png");
-  border: 2px solid #000000;
-  border-radius: 12px; 
-  padding: 24px;
-}*/
-
-.aboutus-textarea {
-  text-align: justify;
-  width: 100%;
-  background: transparent;
-  border: none;
-  resize: none;
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 18px;
-  color: #000000;
-  min-height: 300px;
-  padding-top: 0px;
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
-}
-
-.aboutus-textarea:focus {
-  outline: none;
-}
-
-.aboutus-icon-btn {
-  width: 40px;
-  height: 40px;
-  background-color: #feffc9;
-  border: 2px solid #000000;
-  color: #000000;
-  font-size: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  cursor: pointer;
-  text-decoration: none;
-  padding: 0;
-}
-
-.aboutus-icon-btn:hover {
-  background-color: #fdff95;
-}
-
-.aboutus-label {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  font-size: 16px;
-  color: #000000;
-}
-
-
-/* For tablets */
-@media (max-width: 992px) {
-  .aboutus-title {
-    font-size: 22px;
-  }
-
-  .aboutus-textarea {
-    font-size: 16px;
-    min-height: auto;
-  }
-
-  .aboutus-body {
-    max-height: none;
-    padding-right: 0;
-  }
-}
-
-/* For mobile phones */
-@media (max-width: 600px) {
-  
-  .aboutus-title {
-    font-size: 20px;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 26px;
+    color: #000;
+    margin: 0;
     text-align: center;
-    flex-grow: unset;
-  }
+}
 
-  .aboutus-textarea {
-    font-size: 15px;
-    padding: 5px;
-    text-align: left;
-  }
+/* Body */
+.aboutus-body {
+    overflow-y: auto;
+    padding-right: 10px;
+}
 
-  .aboutus-header {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    position: relative;
-    margin-bottom: 10px;
-    margin-top: 50px;
-  }
-
-  .aboutus-icon-btn {
-    width: 32px;
-    height: 32px;
+/* Main content area */
+.aboutus-textarea {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-family: 'Comic Sans MS', cursive;
     font-size: 16px;
-  }
+    color: #000;
+    line-height: 1.9;
+    text-align: left;
+}
 
-  .aboutus-label {
-    font-size: 14px;
-  }
+/* Paragraph spacing */
+.aboutus-textarea p {
+    margin-bottom: 20px;
+}
+
+/* Quotes */
+.quote {
+    text-align: center;
+    font-style: italic;
+    font-size: 18px;
+    margin: 30px 0;
+}
+
+/* Section heading */
+.aboutus-section-title {
+    text-align: center;
+    font-size: 22px;
+    margin: 40px 0 25px;
+    font-weight: bold;
+}
+
+/* Features list */
+.aboutus-list {
+    padding-left: 25px;
+    line-height: 2;
+}
+
+.aboutus-list li {
+    margin-bottom: 10px;
 }
 
 /* Back button */
 .aboutus-header .aboutus-back {
-  position: absolute;
-  left: 0;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.aboutus-icon-btn {
+    width: 40px;
+    height: 40px;
+    background-color: #feffc9;
+    border: 2px solid #000;
+    color: #000;
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    text-decoration: none;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.aboutus-icon-btn:hover {
+    background-color: #fdff95;
+}
+
+.aboutus-label {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 16px;
+    color: #000;
 }
 
 /* Tablet */
 @media (max-width: 992px) {
-  .aboutus-textarea {
-    font-size: 16px;
-    padding: 8px 12px;
-    max-width: 100%;
-  }
+
+    .aboutus-title {
+        font-size: 22px;
+    }
+
+    .aboutus-textarea {
+        font-size: 15px;
+    }
+
+    .aboutus-section-title {
+        font-size: 20px;
+    }
 }
 
 /* Mobile */
 @media (max-width: 600px) {
-  .aboutus-textarea {
-    font-size: 15px;
-    text-align: left;   
-    line-height: 1.5;
-    padding: 6px 10px;
-  }
-}
 
+    .aboutus-header {
+        margin-top: 50px;
+    }
+
+    .aboutus-title {
+        font-size: 20px;
+    }
+
+    .aboutus-textarea {
+        font-size: 14px;
+        line-height: 1.8;
+        padding: 0 15px;
+    }
+
+    .quote {
+        font-size: 16px;
+    }
+
+    .aboutus-section-title {
+        font-size: 18px;
+    }
+
+    .aboutus-icon-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .aboutus-label {
+        font-size: 14px;
+    }
+}

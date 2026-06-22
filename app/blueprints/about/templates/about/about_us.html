@@ -3,37 +3,82 @@
 {% set hide_sidebar = true %}
 
 {% block content %}
+
 <div class="aboutus-header">
     <div class="aboutus-back">
         <a href="{{ back_url }}" class="aboutus-icon-btn">←</a>
         <span class="aboutus-label ms-2">Back</span>
     </div>
+
     <h2 class="aboutus-title">About Us</h2>
 </div>
+
 <hr>
 
 <div class="aboutus-diary-box">
     <div class="aboutus-body">
-        <p class="aboutus-textarea readonly" style="white-space: pre-wrap;">
-            <u><b>"Every moment has a story to tell."</b></u>            
-            Life moves fast, and memories can fade — but your words deserve a place where they can live forever. My Digital Diary was created for those
-            who want to hold on to their moments, organize their thoughts, and keep their creativity alive. Our platform is designed to help you capture
-            your thoughts and organize them into different sections all in one place. With the integration of AI Assistance (powered by Sarvam AI API)
-            and Smart Summarization, you can think, plan, and create with clarity. Whether you need guidance, want to take quick notes, or require a 
-            concise summary, you can ask anything, and learn anything.
+        <div class="aboutus-textarea">
 
-            <u><b>* What We Offer *</b></u>
+            <p class="quote">
+                <b>"Every moment has a story to tell."</b>
+            </p>
 
-            <b>- Journal</b> — Capture life's chapters and daily reflections.
-            <b>- Notes</b> — Jot down quick thoughts and important reminders.
-            <b>- Ideas</b> — Store and nurture your next big creation.
-            <b>- Quotes</b> — Save inspiring words that guide and motivate you.
-            <b>- To-Do List</b> — Stay productive and keep your days on track.
-            <b>- Gallery</b> — Preserve the memories that pictures tell best.
-            <b>- AI Assistance</b> — Get instant help, summaries, makes your writing smarter.
+            <p>
+                Life moves fast, and memories can fade — but your words deserve a
+                place where they can live forever. My Digital Diary was created for
+                those who want to hold on to their moments, organize their thoughts,
+                and keep their creativity alive.
+            </p>
 
-            <u><b>"Life is worth writing down — let My Digital Diary help you keep it alive."</b></u>
-        </p>
+            <p>
+                Our platform is designed to help you capture your thoughts and
+                organize them into different sections all in one place. With the
+                integration of AI Assistance (powered by Sarvam AI API) and Smart
+                Summarization, you can think, plan, and create with clarity.
+                Whether you need guidance, want to take quick notes, or require a
+                concise summary, you can ask anything and learn anything.
+            </p>
+
+            <h3 class="aboutus-section-title">What We Offer</h3>
+
+            <ul class="aboutus-list">
+                <li>
+                    <b>Journal</b> — Capture life's chapters and daily reflections.
+                </li>
+
+                <li>
+                    <b>Notes</b> — Jot down quick thoughts and important reminders.
+                </li>
+
+                <li>
+                    <b>Ideas</b> — Store and nurture your next big creation.
+                </li>
+
+                <li>
+                    <b>Quotes</b> — Save inspiring words that guide and motivate you.
+                </li>
+
+                <li>
+                    <b>To-Do List</b> — Stay productive and keep your days on track.
+                </li>
+
+                <li>
+                    <b>Gallery</b> — Preserve the memories that pictures tell best.
+                </li>
+
+                <li>
+                    <b>AI Assistance</b> — Get instant help, summaries, and smarter writing.
+                </li>
+            </ul>
+
+            <p class="quote">
+                <b>
+                    "Life is worth writing down — let My Digital Diary help you keep it alive."
+                </b>
+            </p>
+
+        </div>
     </div>
 </div>
+
 {% endblock %}
