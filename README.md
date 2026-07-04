@@ -4,7 +4,7 @@ My Digital Diary is a full-stack web application that enables users to securely 
 ## ✨ **Features:**
 1. Task Specific Modules:- Journal, Notes, Ideas, Quotes, To-Do List, Gallery, AI Assistance.
 2. AI-powered chat assistance for user interaction.
-3. One click summarization using external AI API.
+3. One click summarization using Sarvam AI API.
 4. User Registration and Authentication.
 5. Full CRUD operations with database integration.
    
