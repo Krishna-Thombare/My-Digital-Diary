@@ -5,12 +5,14 @@ from flask_migrate import Migrate
 from dotenv import load_dotenv
 from flask_wtf import CSRFProtect
 from flask_mail import Mail
+from flask_login import LoginManager
 import os
 
 db = SQLAlchemy()
 migrate = Migrate()
 csrf = CSRFProtect()
 mail = Mail()
+login_manager = LoginManager()
 
 def create_app():
     load_dotenv()  # Loads from .env
@@ -30,6 +32,17 @@ def create_app():
     migrate.init_app(app, db)     # Database Migration Initilization
     csrf.init_app(app)            # CSRF Token Initilization
     mail.init_app(app)            # Mail Initialization
+    login_manager.init_app(app)   # Login Manager Initialization
+
+    from app.models import User
+
+    login_manager.login_view = 'auth.login'
+    login_manager.login_message = 'Please log in to access this page.'
+    login_manager.login_message_category = 'info'
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return db.session.get(User, int(user_id))
 
     # Import and register blueprints
     from app.blueprints.about.routes import about_bp
