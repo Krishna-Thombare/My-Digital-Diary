@@ -1,7 +1,7 @@
-from flask import render_template, redirect, url_for, request, flash, session, current_app, abort
+from flask import render_template, redirect, url_for, request, flash, current_app, abort
 from . import gallery_bp
 from app.models import ImageFolder, UserImages, db
-from app.utils.decorators import login_required
+from flask_login import login_required, current_user
 from app.forms.gallery_form import FolderForm, DeleteForm, UploadImageForm
 from werkzeug.utils import secure_filename
 from datetime import datetime, date
@@ -26,7 +26,7 @@ def gallery_list():
             flash("Folder name required.", "error")
             return redirect(url_for("gallery.gallery_list"))
 
-        new_folder = ImageFolder(name=name, user_id=session["user_id"], created_at=date.today())
+        new_folder = ImageFolder(name=name, user_id=current_user.id, created_at=date.today())
         db.session.add(new_folder)
         try:
             db.session.commit()
@@ -36,7 +36,7 @@ def gallery_list():
             flash("Folder name already exists!", "error")
         return redirect(url_for("gallery.gallery_list"))
 
-    folders = ImageFolder.query.filter_by(user_id=session["user_id"]).order_by(ImageFolder.created_at.desc()).all()
+    folders = ImageFolder.query.filter_by(user_id=current_user.id).order_by(ImageFolder.created_at.desc()).all()
     return render_template("gallery/gallery_list.html", folders=folders, form=form, delete_form=delete_form)
 
 # View Folder
@@ -44,7 +44,7 @@ def gallery_list():
 @login_required
 def gallery_view(folder_id):
     folder = ImageFolder.query.get_or_404(folder_id)
-    if folder.user_id != session["user_id"]:
+    if folder.user_id != current_user.id:
         abort(403)
 
     form = UploadImageForm()
@@ -65,7 +65,7 @@ def gallery_view(folder_id):
             name, ext = os.path.splitext(filename)
             short = name[:30] + ext
             ts = datetime.now().strftime("%Y%m%d%H%M%S")
-            user_id = session["user_id"]
+            user_id = current_user.id
             out_filename = f"user_{user_id}_{ts}_{short}"
 
             upload_dir = os.path.join(current_app.root_path, "static", "uploads", "gallery")
@@ -94,7 +94,7 @@ def gallery_view(folder_id):
 @login_required
 def delete_folder(folder_id):
     folder = ImageFolder.query.get_or_404(folder_id)
-    if folder.user_id != session["user_id"]:
+    if folder.user_id != current_user.id:
         abort(403)
 
     # Path to the uploads folder
@@ -133,7 +133,7 @@ def delete_image(image_id):
 
     img = UserImages.query.get_or_404(image_id)
     folder = ImageFolder.query.get_or_404(img.folder_id)
-    if folder.user_id != session["user_id"]:
+    if folder.user_id != current_user.id:
         abort(403)
 
     upload_dir = os.path.join(current_app.root_path, "static", "uploads", "gallery")
