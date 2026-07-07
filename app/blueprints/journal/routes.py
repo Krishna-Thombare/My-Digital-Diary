@@ -1,17 +1,16 @@
-from flask import Blueprint, render_template, redirect, url_for, flash, session, request
+from flask import Blueprint, render_template, redirect, url_for, flash, request
 from . import journal_bp
 from datetime import date, datetime
 from app.forms.journal_form import JournalForm, DeleteForm
 from app.models import db, UserJournal
 from flask import jsonify
-from app.utils.decorators import login_required
+from flask_login import login_required, current_user
 
 # Journal Entries Listing
 @journal_bp.route("/")
 @login_required
 def journal_list():
-    username = session.get("username")
-    journals = UserJournal.query.filter_by(username=username).order_by(UserJournal.date.desc()).all()
+    journals = UserJournal.query.filter_by(username=current_user.username).order_by(UserJournal.date.desc()).all()
     delete_form = DeleteForm()
     return render_template("journal/journal_list.html", journals=journals, delete_form=delete_form)
 
@@ -24,8 +23,8 @@ def add_journal():
     date_str = f"{today.day} {today.strftime('%B, %Y')}"
     if form.validate_on_submit():
         new_entry = UserJournal(
-            user_id=session["user_id"],
-            username=session["username"],
+            user_id=current_user.id,
+            username=current_user.username,
             topic_name=form.topic_name.data,
             journal_texts=form.journal_texts.data,
             date=date.today()
