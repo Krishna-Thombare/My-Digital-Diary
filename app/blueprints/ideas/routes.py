@@ -1,15 +1,14 @@
-from flask import render_template, request, redirect, url_for, session, flash
+from flask import render_template, request, redirect, url_for, flash
 from . import ideas_bp
 from datetime import date
 from app.forms.ideas_form import IdeaForm, DeleteForm
 from app.models import UserIdeas, db
-from app.utils.decorators import login_required
+from flask_login import login_required, current_user
 
 @ideas_bp.route("/")
 @login_required
 def ideas_list(): 
-    username = session.get("username")
-    user_ideas = UserIdeas.query.filter_by(username=username).order_by(UserIdeas.date.desc()).all()
+    user_ideas = UserIdeas.query.filter_by(username=current_user.username).order_by(UserIdeas.date.desc()).all()
     delete_form = DeleteForm()
     return render_template("ideas/ideas_list.html", user_ideas=user_ideas, delete_form=delete_form)
 
@@ -19,8 +18,8 @@ def add_idea():
     form = IdeaForm()
     if form.validate_on_submit():
         new_idea = UserIdeas(
-            user_id=session["user_id"],
-            username=session['username'], 
+            user_id=current_user.id,
+            username=current_user.username,
             ideas=form.ideas.data,
             date=date.today()
         )
