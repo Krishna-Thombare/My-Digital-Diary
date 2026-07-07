@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import auth_bp
 from app.forms.auth_forms import LoginForm, RegisterForm
 from app.models import db, User
+from flask_login import login_user, logout_user, login_required
 
 # Helper route
 @auth_bp.route('/')
@@ -43,8 +44,7 @@ def login():
         user = User.query.filter_by(username=login_form.username.data).first()
         
         if user and check_password_hash(user.password, login_form.password.data):
-            session['user_id'] = user.id
-            session['username'] = user.username
+            login_user(user)
             flash('Logged in successfully!', 'success')
             return redirect(url_for('journal.journal_list'))
         
@@ -54,8 +54,9 @@ def login():
 
 # Logout
 @auth_bp.route('/logout')
+@login_required
 def logout():
-    session.clear()
+    logout_user()
     session.pop('_flashes', None)
     flash('Logged out successfully!', 'info')
     return redirect(url_for('home.home'))
