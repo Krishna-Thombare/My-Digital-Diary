@@ -1,22 +1,20 @@
-from flask import render_template, request, redirect, url_for, session, flash
+from flask import render_template, request, redirect, url_for, flash
 from . import todo_bp
 from app.forms.todo_form import TodoForm
 from app.models import db, UserTodoList
 from datetime import date
-from app.utils.decorators import login_required
+from flask_login import login_required, current_user
 
 @todo_bp.route('/', methods=['GET', 'POST'])
 @login_required
 def todo():
-    if 'user_id' not in session:
-        return redirect(url_for('auth.login'))
 
     form = TodoForm()
 
     if form.validate_on_submit():
         new_task = UserTodoList(
-            user_id=session['user_id'],
-            username=session['username'],
+            user_id=current_user.id,
+            username=current_user.username,
             tasks=form.task.data,
             status=False,
             date=date.today()
@@ -27,7 +25,7 @@ def todo():
         flash("Task added!", "success")
         return redirect(url_for('todo.todo'))
 
-    todos = UserTodoList.query.filter_by(user_id=session['user_id']).order_by(UserTodoList.date.desc()).all()
+    todos = UserTodoList.query.filter_by(user_id=current_user.id).order_by(UserTodoList.date.desc()).all()
     return render_template('todo/todo.html', form=form, todos=todos)
 
 # Toggle Status - Check Box Tick
@@ -37,7 +35,7 @@ def toggle_status(todo_id):
     task = UserTodoList.query.get_or_404(todo_id)
 
     # Ensure task belongs to the logged-in user
-    if task.user_id != session.get('user_id'):
+    if task.user_id != current_user.id:
         flash("Unauthorized access!", "danger")
         return redirect(url_for('todo.todo'))
 
@@ -51,7 +49,7 @@ def toggle_status(todo_id):
 def delete_task(todo_id):
     task = UserTodoList.query.get_or_404(todo_id)
 
-    if task.user_id != session.get('user_id'):
+    if task.user_id != current_user.id:
         flash("Unauthorized access!", "danger")
         return redirect(url_for('todo.todo'))
 

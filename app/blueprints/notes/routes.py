@@ -1,10 +1,10 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash, session
+from flask import Blueprint, render_template, redirect, url_for, request, flash
 from . import notes_bp
 from datetime import date, datetime
 from app.forms.notes_form import NoteForm, DeleteForm
 from app.models import UserNotes, db
 from flask import jsonify
-from app.utils.decorators import login_required
+from flask_login import login_required, current_user
 import os
 from werkzeug.utils import secure_filename
 from flask import current_app
@@ -13,8 +13,7 @@ from flask import current_app
 @notes_bp.route("/")
 @login_required
 def notes_list():
-    username = session.get("username")
-    notes = UserNotes.query.filter_by(username=username).order_by(UserNotes.date.desc()).all()
+    notes = UserNotes.query.filter_by(username=current_user.username).order_by(UserNotes.date.desc()).all()
     delete_form = DeleteForm()
     return render_template("notes/notes_list.html", notes=notes, delete_form=delete_form)
 
@@ -41,7 +40,7 @@ def add_note():
             filename_short = name[:25] + ext   # Limits the original filename length to 25 characters
 
             timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-            user_id = session["user_id"]
+            user_id = current_user.id
             image_filename = f"user_{user_id}_{timestamp}_{filename_short}"
 
             image_path = os.path.join(current_app.root_path, 'static/uploads', image_filename)
@@ -50,8 +49,8 @@ def add_note():
             
         # For adding new note
         new_note = UserNotes(
-            user_id=session["user_id"],
-            username=session["username"],
+            user_id=current_user.id,
+            username=current_user.username,
             note_name=form.note_name.data,
             notes=form.notes.data,
             source_links=form.source_links.data,
@@ -96,7 +95,7 @@ def edit_note(note_id):
             filename_short = name[:25] + ext
 
             timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-            user_id = session["user_id"]
+            user_id = current_user.id
             image_filename = f"user_{user_id}_{timestamp}_{filename_short}"
 
             image_path = os.path.join(current_app.root_path, 'static/uploads', image_filename)

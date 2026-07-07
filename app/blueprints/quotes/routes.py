@@ -1,15 +1,14 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash, session
+from flask import Blueprint, render_template, redirect, url_for, request, flash
 from . import quotes_bp
 from datetime import date
 from app.forms.quotes_form import QuoteForm, DeleteForm
 from app.models import UserQuotes, db
-from app.utils.decorators import login_required
+from flask_login import login_required, current_user
 
 @quotes_bp.route("/")
 @login_required
 def quotes_list(): 
-    username = session.get("username")
-    user_quotes = UserQuotes.query.filter_by(username=username).order_by(UserQuotes.date.desc()).all()
+    user_quotes = UserQuotes.query.filter_by(username=current_user.username).order_by(UserQuotes.date.desc()).all()
     delete_form = DeleteForm()
     return render_template("quotes/quotes_list.html", user_quotes=user_quotes, delete_form=delete_form)
 
@@ -19,8 +18,8 @@ def add_quotes():
     form = QuoteForm()
     if form.validate_on_submit():
         new_quote = UserQuotes(
-            user_id=session["user_id"],
-            username=session["username"],
+            user_id=current_user.id,
+            username=current_user.username,
             quotes=form.quotes.data,
             date=date.today()
         )
