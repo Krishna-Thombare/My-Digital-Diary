@@ -69,6 +69,7 @@ def delete_journal(journal_id):
 
 # Summarize Journal Entry - (AI Summarization Feature)
 @journal_bp.route("/get-journal-content/<int:journal_id>")
+@login_required
 def get_journal_content(journal_id):
     entry = UserJournal.query.get_or_404(journal_id)
     return jsonify({"journal_texts": entry.journal_texts})

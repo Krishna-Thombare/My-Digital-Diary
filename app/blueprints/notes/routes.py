@@ -125,6 +125,7 @@ def delete_note(note_id):
 
 # Summarize Notes - *(AI Summarization Feature)*
 @notes_bp.route("/get-notes-content/<int:note_id>")
+@login_required
 def get_notes_content(note_id):
     entry = UserNotes.query.get_or_404(note_id)
     return jsonify({"notes": entry.notes})  
