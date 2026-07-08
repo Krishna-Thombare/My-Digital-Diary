@@ -37,3 +37,5 @@ migrations/*.pyc
 
 # Favicon
 app/static/images/favicon.png
+
+CLOUDINARY_FEATURE.md
