@@ -45,7 +45,7 @@ def upload_image(file_storage, folder, public_id):
 def public_id_from_url(image_url):
     if not image_url:
         return None
-
+    # Extracts the URL path and converts it into a tuple of its path components.
     path_parts = PurePosixPath(urlparse(image_url).path).parts
     try:
         upload_index = path_parts.index("upload")
