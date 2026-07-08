@@ -37,7 +37,7 @@ class UserNotes(db.Model):
     username = db.Column(db.String(15), nullable=False)
     note_name = db.Column(db.String(70), nullable=False)
     notes = db.Column(db.Text, nullable=False)
-    image_filename = db.Column(db.String(120), nullable=True)
+    image_filename = db.Column(db.String(500), nullable=True)
     source_links = db.Column(db.Text)
     date = db.Column(db.Date, default=date.today)
 
@@ -88,6 +88,6 @@ class UserImages(db.Model):
     __tablename__ = 'user_images'
     
     id = db.Column(db.Integer, primary_key=True)
-    filename = db.Column(db.String(200), nullable=False)
+    filename = db.Column(db.String(500), nullable=False)
     folder_id = db.Column(db.Integer, db.ForeignKey('image_folder.id'), nullable=False)
     uploaded_at = db.Column(db.Date, default=date.today)
