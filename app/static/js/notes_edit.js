@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
           const checkbox = document.createElement('input');
           checkbox.type = 'checkbox';
           checkbox.id = 'remove-preview-image';
-          checkbox.name = 'remove_image';
+          checkbox.name = 'cancel_image_upload';
+          checkbox.value = '1';
           checkbox.className = 'form-check-input me-1';
 
           const label = document.createElement('label');

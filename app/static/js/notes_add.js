@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const hiddenInput = document.createElement('input');
           hiddenInput.type = 'hidden';
           hiddenInput.id = 'remove-image-flag';
-          hiddenInput.name = 'remove_image';
+          hiddenInput.name = 'cancel_image_upload';
           hiddenInput.value = '0';
 
           const label = document.createElement('label');
