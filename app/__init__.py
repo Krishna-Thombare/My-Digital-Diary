@@ -1,11 +1,11 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from config import Config
 from flask_migrate import Migrate
 from dotenv import load_dotenv
 from flask_wtf import CSRFProtect
 from flask_mail import Mail
 from flask_login import LoginManager
+import cloudinary
 import os
 
 db = SQLAlchemy()
@@ -33,6 +33,14 @@ def create_app():
     csrf.init_app(app)            # CSRF Token Initilization
     mail.init_app(app)            # Mail Initialization
     login_manager.init_app(app)   # Login Manager Initialization
+
+    # Cloudinary Initialization
+    cloudinary.config(
+        cloud_name=app.config['CLOUDINARY_CLOUD_NAME'],
+        api_key=app.config['CLOUDINARY_API_KEY'],
+        api_secret=app.config['CLOUDINARY_API_SECRET'],
+        secure=True
+    )
 
     from app.models import User
 
