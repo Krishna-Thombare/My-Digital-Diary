@@ -1,13 +1,11 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, current_app, render_template, redirect, url_for, request, flash
 from . import notes_bp
 from datetime import date, datetime
 from app.forms.notes_form import NoteForm, DeleteForm
 from app.models import UserNotes, db
 from flask import jsonify
 from flask_login import login_required, current_user
-import os
-from werkzeug.utils import secure_filename
-from flask import current_app
+from app.utils.cloudinary_images import destroy_image, upload_image
 
 # Note Entries Listing
 @notes_bp.route("/")
@@ -26,26 +24,23 @@ def add_note():
     date_str = f"{today.day} {today.strftime('%B, %Y')}"
     
     if form.validate_on_submit():
-        # For adding image functionality
-        image_file = request.files.get('image')
+        image_file = request.files.get("image")
         image_filename = None
-        
-        # Get remove flag
-        remove_image_flag = request.form.get("remove_image") == "1"
 
-        # Handle image only if it's not marked for removal
-        if image_file and image_file.filename != "" and not remove_image_flag:
-            filename = secure_filename(image_file.filename)
-            name, ext = os.path.splitext(filename)   # Spliting name and extension of original filename
-            filename_short = name[:25] + ext   # Limits the original filename length to 25 characters
-
-            timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-            user_id = current_user.id
-            image_filename = f"user_{user_id}_{timestamp}_{filename_short}"
-
-            image_path = os.path.join(current_app.root_path, 'static/uploads', image_filename)
-            os.makedirs(os.path.dirname(image_path), exist_ok=True)
-            image_file.save(image_path)
+        if image_file and image_file.filename and request.form.get("cancel_image_upload") != "1":
+            try:
+                image_filename = upload_image(
+                    image_file,
+                    folder="my_digital_diary/notes",
+                    public_id=f"user_{current_user.id}_{datetime.now().strftime('%Y%m%d%H%M%S%f')}",
+                )
+            except (ValueError, RuntimeError) as exc:
+                flash(str(exc), "error")
+                return render_template("notes/notes_add.html", form=form, current_date=date_str)
+            except Exception as exc:
+                flash("Image upload failed. Please try again.", "error")
+                current_app.logger.error("Cloudinary note upload failed: %s", exc)
+                return render_template("notes/notes_add.html", form=form, current_date=date_str)
             
         # For adding new note
         new_note = UserNotes(
@@ -67,48 +62,41 @@ def add_note():
 @notes_bp.route("/view/<int:note_id>")
 @login_required
 def view_note(note_id):
-    entry = UserNotes.query.get_or_404(note_id)
+    entry = UserNotes.query.filter_by(id=note_id, user_id=current_user.id).first_or_404()
     return render_template("notes/notes_read.html", entry=entry)
 
 # Edit/Update Note Entry
 @notes_bp.route("/view/<int:note_id>/edit", methods=["GET", "POST"])
 @login_required
 def edit_note(note_id):
-    entry = UserNotes.query.get_or_404(note_id)
+    entry = UserNotes.query.filter_by(id=note_id, user_id=current_user.id).first_or_404()
     form = NoteForm(obj=entry)
 
     if form.validate_on_submit():
-        remove_image_checked = 'remove_image' in request.form
-        
-        # Handle image removal
-        if remove_image_checked and entry.image_filename:
-            image_path = os.path.join(current_app.root_path, 'static/uploads', entry.image_filename)
-            if os.path.exists(image_path):
-                os.remove(image_path)
-            entry.image_filename = None
+        image_file = request.files.get("image")
+        has_new_image = image_file and image_file.filename and request.form.get("cancel_image_upload") != "1"
 
-        # Handle new image upload (replaces existing one if any)
-        image_file = request.files.get('image')
-        if image_file and image_file.filename and not remove_image_checked:
-            filename = secure_filename(image_file.filename)
-            name, ext = os.path.splitext(filename)
-            filename_short = name[:25] + ext
+        if has_new_image:
+            try:
+                new_image_url = upload_image(
+                    image_file,
+                    folder="my_digital_diary/notes",
+                    public_id=f"user_{current_user.id}_{datetime.now().strftime('%Y%m%d%H%M%S%f')}",
+                )
+            except (ValueError, RuntimeError) as exc:
+                flash(str(exc), "error")
+                return render_template("notes/notes_edit.html", form=form, note_id=note_id, entry=entry)
+            except Exception as exc:
+                flash("Image upload failed. Please try again.", "error")
+                current_app.logger.error("Cloudinary note upload failed: %s", exc)
+                return render_template("notes/notes_edit.html", form=form, note_id=note_id, entry=entry)
 
-            timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-            user_id = current_user.id
-            image_filename = f"user_{user_id}_{timestamp}_{filename_short}"
-
-            image_path = os.path.join(current_app.root_path, 'static/uploads', image_filename)
-            os.makedirs(os.path.dirname(image_path), exist_ok=True)
-            image_file.save(image_path)
-
-            # Remove old image if replacing
             if entry.image_filename:
-                old_path = os.path.join(current_app.root_path, 'static/uploads', entry.image_filename)
-                if os.path.exists(old_path):
-                    os.remove(old_path)
-
-            entry.image_filename = image_filename
+                destroy_image(entry.image_filename)
+            entry.image_filename = new_image_url
+        elif request.form.get("remove_image") == "on" and entry.image_filename:
+            destroy_image(entry.image_filename)
+            entry.image_filename = None
 
         # Update note fields
         entry.note_name = form.note_name.data
@@ -125,13 +113,10 @@ def edit_note(note_id):
 @notes_bp.route("/delete/<int:note_id>", methods=["POST"])
 @login_required
 def delete_note(note_id):
-    entry = UserNotes.query.get_or_404(note_id)
+    entry = UserNotes.query.filter_by(id=note_id, user_id=current_user.id).first_or_404()
 
-    # Delete image file if exists
     if entry.image_filename:
-        image_path = os.path.join(current_app.root_path, 'static/uploads', entry.image_filename)
-        if os.path.exists(image_path):
-            os.remove(image_path)
+        destroy_image(entry.image_filename)
 
     db.session.delete(entry)
     db.session.commit()

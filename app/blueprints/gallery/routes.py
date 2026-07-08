@@ -1,17 +1,11 @@
-from flask import render_template, redirect, url_for, request, flash, current_app, abort
+from flask import current_app, render_template, redirect, url_for, request, flash, abort
 from . import gallery_bp
 from app.models import ImageFolder, UserImages, db
 from flask_login import login_required, current_user
 from app.forms.gallery_form import FolderForm, DeleteForm, UploadImageForm
-from werkzeug.utils import secure_filename
 from datetime import datetime, date
 from sqlalchemy.exc import IntegrityError
-import os
-
-ALLOWED_EXT = {"png", "jpg", "jpeg"}
-
-def allowed_file(filename):
-    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXT
+from app.utils.cloudinary_images import destroy_image, is_allowed_image, upload_image
 
 # Folder List
 @gallery_bp.route("/", methods=["GET", "POST"])
@@ -58,22 +52,27 @@ def gallery_view(folder_id):
 
         upload_count = 0
         for image_file in files:
-            filename = secure_filename(image_file.filename)
-            if not filename or not allowed_file(filename):
+            if not image_file.filename or not is_allowed_image(image_file.filename):
                 continue  # Skip invalid files
 
-            name, ext = os.path.splitext(filename)
-            short = name[:30] + ext
-            ts = datetime.now().strftime("%Y%m%d%H%M%S")
-            user_id = current_user.id
-            out_filename = f"user_{user_id}_{ts}_{short}"
+            ts = datetime.now().strftime("%Y%m%d%H%M%S%f")
+            try:
+                image_url = upload_image(
+                    image_file,
+                    folder=f"my_digital_diary/gallery/folder_{folder_id}",
+                    public_id=f"user_{current_user.id}_{ts}",
+                )
+            except (ValueError, RuntimeError) as exc:
+                db.session.rollback()
+                flash(str(exc), "error")
+                return redirect(url_for("gallery.gallery_view", folder_id=folder_id))
+            except Exception as exc:
+                db.session.rollback()
+                current_app.logger.error("Cloudinary gallery upload failed: %s", exc)
+                flash("Image upload failed. Please try again.", "error")
+                return redirect(url_for("gallery.gallery_view", folder_id=folder_id))
 
-            upload_dir = os.path.join(current_app.root_path, "static", "uploads", "gallery")
-            os.makedirs(upload_dir, exist_ok=True)
-            save_path = os.path.join(upload_dir, out_filename)
-            image_file.save(save_path)
-
-            ui = UserImages(filename=out_filename, folder_id=folder_id, uploaded_at=date.today())
+            ui = UserImages(filename=image_url, folder_id=folder_id, uploaded_at=date.today())
             db.session.add(ui)
             upload_count += 1
 
@@ -97,20 +96,10 @@ def delete_folder(folder_id):
     if folder.user_id != current_user.id:
         abort(403)
 
-    # Path to the uploads folder
-    upload_dir = os.path.join(current_app.root_path, "static", "uploads", "gallery")
-
-    # Get all images in this folder
     images = UserImages.query.filter_by(folder_id=folder_id).all()
 
-    # Delete image files from disk
     for img in images:
-        file_path = os.path.join(upload_dir, img.filename)
-        if os.path.exists(file_path):
-            try:
-                os.remove(file_path)
-            except Exception as e:
-                current_app.logger.error(f"Error deleting file {file_path}: {e}")
+        destroy_image(img.filename)
 
     # Delete image records from Database
     UserImages.query.filter_by(folder_id=folder_id).delete()
@@ -136,10 +125,7 @@ def delete_image(image_id):
     if folder.user_id != current_user.id:
         abort(403)
 
-    upload_dir = os.path.join(current_app.root_path, "static", "uploads", "gallery")
-    path = os.path.join(upload_dir, img.filename)
-    if os.path.exists(path):
-        os.remove(path)
+    destroy_image(img.filename)
 
     folder_id = img.folder_id
     db.session.delete(img)
