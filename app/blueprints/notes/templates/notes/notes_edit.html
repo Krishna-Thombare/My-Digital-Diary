@@ -45,7 +45,7 @@
                 <div id="existing-image" class="mt-3">
                     <strong>Current Image:</strong><br>
                     <img id="existing-img-tag"
-                        src="{{ url_for('static', filename='uploads/' + entry.image_filename) }}"
+                        src="{{ entry.image_filename }}"
                         style="max-width: 250px; border: 1px solid #000; padding: 4px;"
                         alt="Note Image"
                         class="note-image">

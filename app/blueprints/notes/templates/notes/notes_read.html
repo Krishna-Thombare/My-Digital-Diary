@@ -29,7 +29,7 @@
     <div class="notes-body">
         {% if entry.image_filename %}
             <div class="note-image-wrapper">
-                <img src="{{ url_for('static', filename='uploads/' ~ entry.image_filename) }}" alt="Note Image" class="note-image">
+                <img src="{{ entry.image_filename }}" alt="Note Image" class="note-image">
             </div>
         {% endif %}
         <div class="notes-textarea readonly" style="white-space: pre-wrap;">{{ entry.notes|safe }}</div>

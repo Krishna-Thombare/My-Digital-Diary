@@ -30,7 +30,7 @@
   <div class="gallery-image-list">
     {% for img in images %}
       <div class="gallery-image">
-        {% set img_url = url_for('static', filename='uploads/gallery/' ~ img.filename) %}
+        {% set img_url = img.filename %}
           <img src="{{ img_url }}" 
           alt=""
           onclick="openPreview('{{ img_url }}')">
