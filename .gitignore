@@ -39,3 +39,5 @@ migrations/*.pyc
 app/static/images/favicon.png
 
 CLOUDINARY_FEATURE.md
+
+.agents
