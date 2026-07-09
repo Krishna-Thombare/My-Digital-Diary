@@ -64,6 +64,10 @@ def create_app():
     from app.blueprints.contact.routes import contact_bp
     from app.blueprints.ai_chat.routes import chat_bp
     from app.blueprints.gallery.routes import gallery_bp
+    from app.blueprints.api import api_bp
+    from app.blueprints.api import auth_routes, todo_routes
+
+    csrf.exempt(api_bp)
 
     app.register_blueprint(about_bp)
     app.register_blueprint(home_bp)
@@ -76,5 +80,6 @@ def create_app():
     app.register_blueprint(contact_bp)
     app.register_blueprint(chat_bp)
     app.register_blueprint(gallery_bp)
+    app.register_blueprint(api_bp)
 
     return app
