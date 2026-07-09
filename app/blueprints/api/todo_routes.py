@@ -31,6 +31,7 @@ def parse_completed(value):
 
     return None
 
+# Get all todos
 @api_bp.route("/todos", methods=["GET"])
 @login_required
 def get_todos():
@@ -40,12 +41,14 @@ def get_todos():
 
     return jsonify({"todos": [serialize_todo(todo) for todo in todos]})
 
+# Get todo by id
 @api_bp.route("/todos/<int:todo_id>", methods=["GET"])
 @login_required
 def get_todo(todo_id):
     todo = get_current_user_todo_or_404(todo_id)
     return jsonify({"todo": serialize_todo(todo)})
 
+# Create todo
 @api_bp.route("/todos", methods=["POST"])
 @login_required
 def create_todo():
@@ -75,6 +78,7 @@ def create_todo():
         "todo": serialize_todo(todo),
     }), 201
 
+# Update todo
 @api_bp.route("/todos/<int:todo_id>", methods=["PATCH"])
 @login_required
 def update_todo(todo_id):
@@ -100,6 +104,7 @@ def update_todo(todo_id):
         "todo": serialize_todo(todo),
     })
 
+# Delete todo
 @api_bp.route("/todos/<int:todo_id>", methods=["DELETE"])
 @login_required
 def delete_todo(todo_id):
