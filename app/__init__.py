@@ -66,6 +66,7 @@ def create_app():
     from app.blueprints.gallery.routes import gallery_bp
     from app.blueprints.api import api_bp
     from app.blueprints.api import auth_routes, todo_routes
+    from app.blueprints.api_docs.routes import api_docs_bp
 
     csrf.exempt(api_bp)
 
@@ -81,5 +82,6 @@ def create_app():
     app.register_blueprint(chat_bp)
     app.register_blueprint(gallery_bp)
     app.register_blueprint(api_bp)
+    app.register_blueprint(api_docs_bp)
 
     return app
