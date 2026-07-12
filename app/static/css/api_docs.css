@@ -1,0 +1,186 @@
+.content {
+    background-color: #fff0f0;
+    background-image: url("../images/todo.png");
+}
+
+/* ── Container ── */
+.api-docs-container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+  /* border: 1px solid #000000; */
+}
+
+/* ── Header ── */
+.api-docs-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1b0e0e;
+}
+
+.api-subtitle {
+  color: #000000;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* ── Base URL box ── */
+.base-url-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f4f0eb;
+  border: 1px solid #d4c5b0;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-bottom: 36px;
+}
+
+.base-url-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.base-url-box code {
+  font-size: 0.9rem;
+  color: #1b0e0e;
+  font-weight: 600;
+}
+
+/* ── Section title ── */
+.api-section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1b0e0e;
+  border-bottom: 2px solid #e0d5c8;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+/* ── Tester card ── */
+.tester-card {
+  border: 1px solid #e0d5c8;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f4f0eb;
+}
+
+.tester-controls {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tester-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Selects & inputs ── */
+.tester-select {
+  padding: 8px 12px;
+  border: 1px solid #d4c5b0;
+  border-radius: 7px;
+  background: #faf7f4;
+  font-size: 0.9rem;
+  color: #1b0e0e;
+  cursor: pointer;
+}
+
+.tester-endpoint-select {
+  flex: 1;
+  min-width: 200px;
+}
+
+.tester-id-input {
+  padding: 8px 12px;
+  border: 1px solid #d4c5b0;
+  border-radius: 7px;
+  background: #faf7f4;
+  font-size: 0.9rem;
+  width: 130px;
+  color: #1b0e0e;
+}
+
+.tester-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d4c5b0;
+  border-radius: 7px;
+  background: #faf7f4;
+  font-size: 0.85rem;
+  font-family: monospace;
+  resize: vertical;
+  color: #1b0e0e;
+}
+
+/* ── Send button ── */
+.tester-send-btn {
+  align-self: flex-start;
+  background: #1b0e0e;
+  color: #ffe5cc;
+  border: none;
+  padding: 9px 22px;
+  border-radius: 7px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tester-send-btn:hover {
+  background: #3a1f1f;
+}
+
+/* ── Response area ── */
+.tester-response {
+  border-top: 1px solid #e0d5c8;
+}
+
+.tester-response-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #555;
+  background: #faf7f4;
+  border-bottom: 1px solid #e0d5c8;
+}
+
+.tester-response pre {
+  margin: 0;
+  padding: 16px 20px;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 0;
+}
+
+/* ── Status badges ── */
+.status-badge {
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.status-badge.status-ok  { background: #e6f4ea; color: #1a7a3a; }
+.status-badge.status-err { background: #fdecea; color: #c0392b; }
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .tester-row { flex-direction: column; }
+  .tester-id-input { width: 100%; }
+}
