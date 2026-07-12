@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% set feature_css = 'api_docs' %}
+
+{% block content %}
+<div class="api-docs-container">
+
+  <!-- Header -->
+  <div class="api-docs-header">
+    <h1><i class="bi bi-braces"></i> REST API</h1>
+    <p class="api-subtitle">
+      My Digital Diary exposes a REST API for your To-Do list — so you can manage
+      your tasks programmatically from a terminal, a script, or any HTTP client.
+      All endpoints return JSON. You're already logged in, so try it live below.
+    </p>
+    <div class="base-url-box">
+      <span class="base-url-label">Base URL</span>
+      <code>{{ request.host_url.rstrip('/') }}/api</code>
+    </div>
+  </div>
+
+  <!-- Live Tester -->
+  <h2 class="api-section-title">
+    <i class="bi bi-play-circle"></i> Live Tester
+  </h2>
+
+  <div class="tester-card">
+    <div class="tester-controls">
+
+      <!-- Row 1: -->
+      <div class="tester-row">
+        <div id="method-display" class="method-display get">GET</div>
+        <select
+          id="tester-endpoint"
+          class="tester-select tester-endpoint-select"
+          onchange="onEndpointChange()"
+        >
+          <option value="get_all">Get all todos</option>
+          <option value="get_one">Get todo by ID</option>
+          <option value="create">Create a todo</option>
+          <option value="update">Update a todo</option>
+          <option value="delete">Delete a todo</option>
+        </select>
+      </div>
+
+      <!-- Row 2: -->
+      <div class="tester-row" id="id-row" style="display:none;">
+        <label class="field-label">Todo ID</label>
+        <input
+          type="number"
+          id="tester-id"
+          class="tester-id-input"
+          placeholder="Enter todo ID"
+          min="1"
+          oninput="onIdChange()"
+        >
+        <span id="id-hint" class="field-hint"></span>
+      </div>
+
+      <!-- Row 3: -->
+      <div id="task-row" style="display:none;">
+        <label class="field-label">Task</label>
+        <input
+          type="text"
+          id="task-input"
+          class="tester-text-input"
+          placeholder="What do you need to do?"
+        >
+      </div>
+
+      <!-- Row 4: -->
+      <div class="tester-row" id="completed-row" style="display:none; align-items:center; gap:10px;">
+        <label class="field-label" style="margin:0;">Completed</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="completed-input" onchange="onCompletedChange()">
+          <span class="toggle-slider"></span>
+        </label>
+        <span id="completed-label" class="field-hint">Not completed</span>
+      </div>
+
+      <!-- Send button -->
+      <button class="tester-send-btn" onclick="sendRequest()">
+        <i class="bi bi-send"></i> Send Request
+      </button>
+
+    </div>
+
+    <!-- Response -->
+    <div class="tester-response" id="tester-response-box" style="display:none;">
+      <div class="tester-response-header">
+        <span>Response</span>
+        <span id="tester-status-badge" class="status-badge"></span>
+      </div>
+      <pre id="tester-response-body"></pre>
+    </div>
+  </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/api_docs.js') }}"></script>
+{% endblock %}
