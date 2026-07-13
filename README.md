@@ -21,13 +21,17 @@ My Digital Diary is a full-stack web application that enables users to securely 
 
 ## 🧠 **Architecture:**
 1. Used Flask Blueprints for modular structure.
-2. REST API layer **(`/api/`)** for the To-Do feature — returns JSON, supports GET, POST, PATCH, DELETE.
-3. Template rendering using Jinja2.
-4. Uses SQLAlchemy ORM for database management.
-5. External API integration for AI feature.
+2. Flask-Login for session-based authentication
+3. Uses SQLAlchemy ORM for database management.
+4. External API integration for AI feature.
+5. Cloudinary for persistent image storage.
+6. REST API layer **(`/api/`)** for the To-Do feature — returns JSON, supports GET, POST, PATCH, DELETE.
 
 ## 🚀 **Live Demo:**
 https://my-digital-diary.onrender.com/
+
+## REST API base URL (needs login)
+https://my-digital-diary.onrender.com/api_docs
 
 ## 📸 **Screenshots:**
 ### 🏠 Login Page
