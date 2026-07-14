@@ -43,6 +43,9 @@ https://my-digital-diary.onrender.com/api_docs
 ### 🤖 AI Assistance Feature
 ![AI](screenshots/AI.png)
 
+### {} API Docs Page
+![AI](screenshots/API.png)
+
 ## 🤝 **Contributing:**
 Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
