@@ -43,7 +43,7 @@ https://my-digital-diary.onrender.com/api_docs
 ### 🤖 AI Assistance Feature
 ![AI](screenshots/AI.png)
 
-### {} API Docs Page
+### { } API Docs Page
 ![AI](screenshots/API.png)
 
 ## 🤝 **Contributing:**
