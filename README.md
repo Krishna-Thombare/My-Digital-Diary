@@ -11,7 +11,7 @@ My Digital Diary is a full-stack web application that enables users to securely 
    
 ## 🛠️ **Tech Stack:**
 1. Backend:- Python, Flask
-2. Database:- MySQL (Aiven Cloud)
+2. Database:- MySQL (hosted on Aiven Cloud)
 3. ORM:- SQLAlchemy + Flask-Migrate (Alembic)
 4. Auth:- Flask-Login
 5. Frontend:- HTML, CSS, Jinja2, Bootstrap
