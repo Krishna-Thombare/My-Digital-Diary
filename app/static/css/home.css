@@ -9,7 +9,8 @@ body {
   font-family: 'EB Garamond', serif;
   color: #3e2723;
   min-height: 100vh;
-  padding-top: 100px;
+  padding-top: 60px;
+  box-sizing: border-box;
 }
 
 /* ---- Container Layout ---- */
@@ -17,23 +18,19 @@ body {
   display: flex;
   width: 90%;
   max-width: 1100px;
-  margin: 0 auto;
-  box-shadow: none;
+  margin: 40px auto;
   border-radius: 0px;
   overflow: hidden;
-  border: none;
 }
 
 /* ---- Info Box ---- */
 .info-box {
-  width: 67%;
+  width: 55%;
   padding: 35px 47px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-size: none;
   color: #fff2d6;
-  border-right: none;
 }
 
 .info-box h1 {
@@ -46,26 +43,18 @@ body {
 .info-box p {
   font-family: 'Comic Sans MS', cursive;
   font-style: italic;
-  margin-bottom: 7px;
-  font-size: 1.3rem;
-}
-
-.info-box p {
-  list-style: none;
-  padding-left: 0px;
-}
-
-.info-box p {
   margin-bottom: 8px;
   font-size: 1.1rem;
+  list-style: none;
+  padding-left: 0;
 }
 
 /* ---- Auth Box ---- */
 .auth-boxes {
-  width: 53%;
+  width: 45%;
   background-color: #3e2723;
   background-image: url("../images/leather.png");
-  padding: 40px 9px;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,6 +111,7 @@ body {
   font-family: 'EB Garamond', serif;
   margin-bottom: 16px;
   transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .auth-form .form-control:focus {
@@ -133,6 +123,7 @@ body {
 /* ---- Buttons ---- */
 .auth-form .btn-primary,
 .auth-button {
+  width: 100%;
   background-color: #5c4033;
   color: #fff;
   padding: 12px 20px;
@@ -154,38 +145,46 @@ body {
   display: none;
 }
 
-
-/* Responsive for Multi-Devices */
-/* For tablets */
-@media (max-width: 992px) {
+/* ---- Tablet (max 900px) ---- */
+@media (max-width: 900px) {
   .container {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    width: 92%;
+    margin: 30px auto;
   }
 
   .info-box {
     width: 100%;
-    padding: 25px 30px;
-    border-right: none;
-    margin-top: 570px;
+    padding: 30px 25px;
+    text-align: center;
   }
 
   .auth-boxes {
     width: 100%;
-    padding: 25px 15px;
-    margin-top: 20px;
+    padding: 30px 25px;
+    box-sizing: border-box;
   }
 
   .form-container {
-    max-width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
   }
 }
 
-/* For mobile phones */
+/* ---- Mobile (max 600px) ---- */
 @media (max-width: 600px) {
   body {
-    padding-top: 60px;
+    padding-top: 55px;
+  }
+
+  .container {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .info-box {
+    padding: 20px 15px;
+    text-align: center;
   }
 
   .info-box h1 {
@@ -193,27 +192,53 @@ body {
   }
 
   .info-box p {
-    font-size: 1rem;
+    font-size: 0.98rem;
+  }
+
+  .auth-boxes {
+    padding: 20px 15px;
+    box-sizing: border-box;
   }
 
   .form-toggle {
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: row;
+    gap: 10px;
   }
 
   .form-toggle button {
-    width: 100%;
-    padding: 12px;
+    flex: 1;
+    padding: 11px 10px;
+    font-size: 1rem;
+  }
+
+  .auth-form label {
     font-size: 1rem;
   }
 
   .auth-form .form-control {
     font-size: 0.95rem;
-    padding: 9px 12px;
+    padding: 10px 12px;
   }
 
+  .auth-button,
   .auth-form .btn-primary {
-    width: 100%;
-    padding: 12px;
+    padding: 13px;
+    font-size: 1rem;
+  }
+}
+
+/* ---- Very small phones (max 380px) ---- */
+@media (max-width: 380px) {
+  .info-box h1 {
+    font-size: 1.9rem;
+  }
+
+  .info-box p {
+    font-size: 0.9rem;
+  }
+
+  .form-toggle button {
+    font-size: 0.9rem;
+    padding: 10px 8px;
   }
 }
