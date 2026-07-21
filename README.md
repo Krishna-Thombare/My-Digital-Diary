@@ -3,12 +3,12 @@ My Digital Diary is a full-stack web application that enables users to securely 
 
 ## ✨ **Features:**
 1. **Task Specific Modules:-** Dedicated sections for Journal, Notes, Ideas, Quotes, To-Do List, and Gallery to keep everything organized in one place.
-2. User Authentication:- Secure registration and login using Flask-Login. Passwords are hashed and all routes are protected with session-based authentication and CSRF protection.
-3. AI Assistance:- A floating AI chat assistant available on every page, plus one-click summarization for Journal and Notes entries — by using Sarvam AI API.
-4. Image Uploads:- Upload and attach images to Notes and Gallery folders. Images are stored persistently on Cloudinary so they never disappear on server restarts.
-5. REST API:- A fully functional CRUD REST API for the To-Do list. Includes a built-in live API tester at `/api_docs` so you can test all endpoints directly from the browser without using any external tools.
-6. Contact:- A contact form that delivers messages directly to the owner's inbox via Gmail SMTP using Flask-Mail.
-7. Full CRUD:- Every module supports creating, reading, updating, and deleting entries with changes reflected in the database instantly.
+2. **User Authentication:-** Secure registration and login using Flask-Login. Passwords are hashed and all routes are protected with session-based authentication and CSRF protection.
+3. **AI Assistance:-** A floating AI chat assistant available on every page, plus one-click summarization for Journal and Notes entries — by using Sarvam AI API.
+4. **Image Uploads:-** Upload and attach images to Notes and Gallery folders. Images are stored persistently on Cloudinary so they never disappear on server restarts.
+5. **REST API:-** A fully functional CRUD REST API for the To-Do list. Includes a built-in live API tester at `/api_docs` so you can test all endpoints directly from the browser without using any external tools.
+6. **Contact:-** A contact form that delivers messages directly to the owner's inbox via Gmail SMTP using Flask-Mail.
+7. **Full CRUD:-** Every module supports creating, reading, updating, and deleting entries with changes reflected in the database instantly.
    
 ## 🛠️ **Tech Stack:**
 1. Backend:- Python, Flask
