@@ -2,7 +2,7 @@
 My Digital Diary is a full-stack web application that enables users to securely create, manage, and organize their personal diary entries online. The platform eliminates the risk of losing traditional handwritten notes while providing advanced digital features for better productivity. Integrated AI-powered chat and text summarization using the Sarvam AI API, implemented a Cloudinary-backed image gallery, and developed a REST API for programmatic access to the to-do list.
 
 ## ✨ **Features:**
-1. **Task Specific Modules:-** Dedicated sections for Journal, Notes, Ideas, Quotes, To-Do List, and Gallery to keep everything organized in one place.
+1. **Task Specific Modules:-** Journal, Notes, Ideas, Quotes, To-Do List, and Gallery to keep everything organized in one place.
 2. **User Authentication:-** Secure registration and login using Flask-Login. Passwords are hashed and all routes are protected with session-based authentication and CSRF protection.
 3. **AI Assistance:-** A floating AI chat assistant available on every page, plus one-click summarization for Journal and Notes entries — by using Sarvam AI API.
 4. **Image Uploads:-** Upload and attach images to Notes and Gallery folders. Images are stored persistently on Cloudinary so they never disappear on server restarts.
