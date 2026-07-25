@@ -5,14 +5,11 @@ import cloudinary.uploader
 from flask import current_app
 from werkzeug.utils import secure_filename
 
-
 ALLOWED_IMAGE_EXTENSIONS = {"png", "jpg", "jpeg", "gif", "webp"}
-
 
 def is_allowed_image(filename):
     safe_name = secure_filename(filename or "")
     return "." in safe_name and safe_name.rsplit(".", 1)[1].lower() in ALLOWED_IMAGE_EXTENSIONS
-
 
 def require_cloudinary_config():
     missing = [
@@ -22,7 +19,6 @@ def require_cloudinary_config():
     ]
     if missing:
         raise RuntimeError(f"Missing Cloudinary config: {', '.join(missing)}")
-
 
 def upload_image(file_storage, folder, public_id):
     if not file_storage or not file_storage.filename:
@@ -40,7 +36,6 @@ def upload_image(file_storage, folder, public_id):
         resource_type="image",
     )
     return upload_result.get("secure_url")
-
 
 def public_id_from_url(image_url):
     if not image_url:
@@ -63,7 +58,6 @@ def public_id_from_url(image_url):
     if "." in public_id:
         public_id = public_id.rsplit(".", 1)[0]
     return public_id
-
 
 def destroy_image(image_url):
     public_id = public_id_from_url(image_url)
