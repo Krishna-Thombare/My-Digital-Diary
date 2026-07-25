@@ -6,6 +6,7 @@ data = {
     "message": "What is the capital of India?"
 }
 
+# Test the API with a sample request
 response = requests.post(url, json=data)
 
 if response.ok:
