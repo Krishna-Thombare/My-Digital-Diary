@@ -63,7 +63,6 @@ def destroy_image(image_url):
     public_id = public_id_from_url(image_url)
     if not public_id:
         return
-
     try:
         cloudinary.uploader.destroy(public_id, resource_type="image")
     except Exception as exc:
